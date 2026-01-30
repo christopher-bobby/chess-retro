@@ -1,0 +1,13 @@
+__turbopack_load_page_chunks__("/_error", [
+  "static/chunks/61593_next_dist_compiled_73e6c910._.js",
+  "static/chunks/61593_next_dist_shared_lib_a8f80e59._.js",
+  "static/chunks/61593_next_dist_client_aaf49537._.js",
+  "static/chunks/61593_next_dist_851b1b77._.js",
+  "static/chunks/61593_next_error_b4125904.js",
+  "static/chunks/[next]_entry_page-loader_ts_97aa8d35._.js",
+  "static/chunks/94f00_react-dom_dfc04d32._.js",
+  "static/chunks/930be__pnpm_22f96696._.js",
+  "static/chunks/[root-of-the-server]__69559dab._.js",
+  "static/chunks/Desktop_chess-retro_pages__error_2da965e7._.js",
+  "static/chunks/turbopack-Desktop_chess-retro_pages__error_e191645a._.js"
+])

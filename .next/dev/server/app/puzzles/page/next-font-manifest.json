@@ -1,0 +1,13 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/Desktop/chess-retro/app/puzzles/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/385c0eceff071084-s.p.6649861c.woff2",
+      "static/media/466e772c7ca57446-s.p.bd0aa820.woff2",
+      "static/media/96517858ba4c7305-s.p.dd70e23b.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}
