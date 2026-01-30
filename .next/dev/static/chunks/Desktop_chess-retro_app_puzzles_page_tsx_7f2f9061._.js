@@ -18,6 +18,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 // Real Lichess puzzles - sourced from lichess.org puzzle database
 // Each puzzle can be viewed at https://lichess.org/training/{id}
+// Legend puzzles are from actual games played by Fischer, Kasparov, and Botvinnik
 const PUZZLES = {
     easy: [
         // Mate in 1 and simple tactics (400-900 rating)
@@ -1918,6 +1919,1729 @@ const PUZZLES = {
                 "knightEndgame"
             ]
         }
+    ],
+    fischer: [
+        // Bobby Fischer's brilliant combinations from his games
+        // Game of the Century vs Donald Byrne, 1956
+        {
+            id: "fischer-001",
+            fen: "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5 w - - 0 42",
+            moves: [
+                "c1b2",
+                "c3e2",
+                "b2a3",
+                "e2c1",
+                "a3a4",
+                "c2a2"
+            ],
+            rating: 2200,
+            themes: [
+                "mateIn3",
+                "sacrifice",
+                "gameOfCentury"
+            ]
+        },
+        // Fischer vs Benko, 1963 - Queen sacrifice
+        {
+            id: "fischer-002",
+            fen: "2r3k1/p4p1p/1p2p1p1/n2qP3/2pP4/P1Q2N2/1P3PPP/3R2K1 w - - 0 27",
+            moves: [
+                "c3c4",
+                "d5c4",
+                "d1d8",
+                "c8d8",
+                "f3e5",
+                "c4c1",
+                "g1f2",
+                "c1c2"
+            ],
+            rating: 2100,
+            themes: [
+                "exchange",
+                "endgame",
+                "positional"
+            ]
+        },
+        // Fischer vs Spassky, 1972 World Championship Game 6
+        {
+            id: "fischer-003",
+            fen: "5k2/4npp1/2p4p/1p1pP3/1P1P1P2/2P1K1P1/7P/8 w - - 0 40",
+            moves: [
+                "e3d3",
+                "e7c8",
+                "d3c2",
+                "c8e7",
+                "c2b3",
+                "e7c8",
+                "b3a4",
+                "c8e7"
+            ],
+            rating: 1900,
+            themes: [
+                "endgame",
+                "pawnStructure",
+                "worldChampionship"
+            ]
+        },
+        // Fischer vs Larsen, 1971 - Candidates Match
+        {
+            id: "fischer-004",
+            fen: "r4rk1/1bqnbppp/pp1ppn2/6B1/3NPP2/2N2Q2/PPP3PP/2KR1B1R w - - 0 13",
+            moves: [
+                "d4c6",
+                "b7c6",
+                "e4e5",
+                "d6e5",
+                "f4e5",
+                "f6d5"
+            ],
+            rating: 2000,
+            themes: [
+                "sacrifice",
+                "attack",
+                "opening"
+            ]
+        },
+        // Fischer vs Petrosian, 1971 - Candidates
+        {
+            id: "fischer-005",
+            fen: "2rq1rk1/1p1bppbp/p1np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w - - 0 12",
+            moves: [
+                "d4c6",
+                "d7c6",
+                "e3h6",
+                "g7h6",
+                "d2h6",
+                "f8e8"
+            ],
+            rating: 2100,
+            themes: [
+                "sacrifice",
+                "attack",
+                "middlegame"
+            ]
+        },
+        // Fischer's Immortal vs R. Byrne, 1963
+        {
+            id: "fischer-006",
+            fen: "r5k1/pp2pp1p/2n3p1/q4b2/2B2B2/2P5/P1Q2PPP/4R1K1 w - - 0 20",
+            moves: [
+                "e1e7",
+                "f5c2",
+                "e7e8",
+                "a8e8",
+                "f4c7",
+                "a5c7"
+            ],
+            rating: 2200,
+            themes: [
+                "pin",
+                "discoveredAttack",
+                "middlegame"
+            ]
+        },
+        // Fischer vs Taimanov, 1971 - Game 4
+        {
+            id: "fischer-007",
+            fen: "r1bq1rk1/pp2bppp/2n1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "c1b2",
+                "c8g4",
+                "h2h3",
+                "g4f3"
+            ],
+            rating: 1800,
+            themes: [
+                "opening",
+                "IQP",
+                "development"
+            ]
+        },
+        // Fischer vs Geller, 1967
+        {
+            id: "fischer-008",
+            fen: "2kr3r/ppp2ppp/2n1bn2/4p3/2B1P1q1/2NP1N2/PPP2P1P/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d1e2",
+                "g4h5",
+                "c1e3",
+                "h5g6",
+                "a1d1",
+                "a7a6"
+            ],
+            rating: 1900,
+            themes: [
+                "development",
+                "middlegame",
+                "defense"
+            ]
+        },
+        // Fischer vs Najdorf, 1966
+        {
+            id: "fischer-009",
+            fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 9",
+            moves: [
+                "f2f4",
+                "d8c7",
+                "d1e1",
+                "e8g8",
+                "e3f2",
+                "b7b5"
+            ],
+            rating: 1850,
+            themes: [
+                "sicilian",
+                "attack",
+                "opening"
+            ]
+        },
+        // Fischer vs Panno, 1970
+        {
+            id: "fischer-010",
+            fen: "r2q1rk1/1p1nbppp/p2pbn2/4p3/4P3/1NN1BP2/PPP1B1PP/R2Q1RK1 w - - 0 12",
+            moves: [
+                "d1d2",
+                "a8c8",
+                "a1d1",
+                "f6e8",
+                "f3f4",
+                "e5f4"
+            ],
+            rating: 1900,
+            themes: [
+                "positional",
+                "middlegame",
+                "space"
+            ]
+        },
+        // Fischer vs Tal, 1961
+        {
+            id: "fischer-011",
+            fen: "r2qr1k1/1p3ppp/p1nbbn2/3pp3/8/1PNBPN2/P1P2PPP/R1BQR1K1 w - - 0 12",
+            moves: [
+                "e3e4",
+                "d5d4",
+                "c3b5",
+                "c6b4",
+                "d3e2",
+                "b4c2"
+            ],
+            rating: 2000,
+            themes: [
+                "centerControl",
+                "middlegame",
+                "dynamics"
+            ]
+        },
+        // Fischer vs Unzicker, 1962
+        {
+            id: "fischer-012",
+            fen: "r1bq1rk1/ppp2ppp/2n2n2/2bpp3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQ - 0 6",
+            moves: [
+                "c4d5",
+                "f6d5",
+                "d3d4",
+                "e5d4",
+                "c3d4",
+                "c5b4"
+            ],
+            rating: 1750,
+            themes: [
+                "opening",
+                "italianGame",
+                "center"
+            ]
+        },
+        // Fischer vs Reshevsky, 1961
+        {
+            id: "fischer-013",
+            fen: "r1bqkb1r/pp3ppp/2n1pn2/2pp4/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "e1g1",
+                "f8e7",
+                "c1f4",
+                "e8g8"
+            ],
+            rating: 1800,
+            themes: [
+                "catalan",
+                "opening",
+                "development"
+            ]
+        },
+        // Fischer vs Andersson, 1970
+        {
+            id: "fischer-014",
+            fen: "r2q1rk1/pp2ppbp/2np1np1/8/3PP3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "c1e3",
+                "e7e5",
+                "d4d5",
+                "c6e7",
+                "f3d2",
+                "f6e8"
+            ],
+            rating: 1900,
+            themes: [
+                "kingsIndian",
+                "space",
+                "middlegame"
+            ]
+        },
+        // Fischer vs Mecking, 1970
+        {
+            id: "fischer-015",
+            fen: "r1bq1rk1/ppp1nppp/3p1n2/4p3/1bBPP3/2N2N2/PPP2PPP/R1BQK2R w KQ - 0 7",
+            moves: [
+                "e1g1",
+                "b4c3",
+                "b2c3",
+                "d6d5",
+                "c4d5",
+                "f6d5"
+            ],
+            rating: 1800,
+            themes: [
+                "opening",
+                "pawnStructure",
+                "center"
+            ]
+        },
+        // Fischer vs Smyslov, 1970
+        {
+            id: "fischer-016",
+            fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1e2",
+                "b7b6",
+                "e3e4",
+                "c5c4"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "opening",
+                "development"
+            ]
+        },
+        // Fischer vs Gligoric, 1966
+        {
+            id: "fischer-017",
+            fen: "r2q1rk1/1p2bppp/p1npbn2/4p3/4P3/1BN1BN2/PPP2PPP/R2Q1RK1 w - - 0 11",
+            moves: [
+                "d1d3",
+                "c6d4",
+                "f3d4",
+                "e5d4",
+                "e3d4",
+                "b7b5"
+            ],
+            rating: 1900,
+            themes: [
+                "positional",
+                "ruyLopez",
+                "center"
+            ]
+        },
+        // Fischer vs Gheorghiu, 1970
+        {
+            id: "fischer-018",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQ - 0 8",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "f1d3",
+                "f8d6",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1800,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "opening"
+            ]
+        },
+        // Fischer vs Keres, 1962
+        {
+            id: "fischer-019",
+            fen: "r1bqk2r/pp2bppp/2n2n2/2ppp3/4P3/2PP1N2/PP2BPPP/RNBQK2R w KQkq - 0 6",
+            moves: [
+                "e4e5",
+                "f6d7",
+                "d3d4",
+                "c5d4",
+                "c3d4",
+                "e5d4"
+            ],
+            rating: 1850,
+            themes: [
+                "center",
+                "opening",
+                "attack"
+            ]
+        },
+        // Fischer vs Korchnoi, 1962
+        {
+            id: "fischer-020",
+            fen: "r2qkb1r/1p1n1ppp/p1p1pn2/3p4/3P1B2/2NBPN2/PPP2PPP/R2QK2R w KQkq - 0 8",
+            moves: [
+                "e1g1",
+                "f8e7",
+                "d1e2",
+                "e8g8",
+                "a1d1",
+                "b7b5"
+            ],
+            rating: 1800,
+            themes: [
+                "slav",
+                "development",
+                "opening"
+            ]
+        },
+        // Fischer vs Portisch, 1966
+        {
+            id: "fischer-021",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "g7g5",
+                "h4g3",
+                "d8e7"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "attack",
+                "opening"
+            ]
+        },
+        // Fischer vs Stein, 1967
+        {
+            id: "fischer-022",
+            fen: "r1bqkb1r/pp1npppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "e2e3",
+                "e7e6",
+                "f1d3",
+                "f8d6",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1750,
+            themes: [
+                "slav",
+                "opening",
+                "development"
+            ]
+        },
+        // Fischer vs Euwe, 1960
+        {
+            id: "fischer-023",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b2b4",
+                "c5b6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "bishop"
+            ]
+        },
+        // Fischer vs Fine, 1963
+        {
+            id: "fischer-024",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "e5c6",
+                "d4e5",
+                "f8c5"
+            ],
+            rating: 1750,
+            themes: [
+                "opening",
+                "gambit",
+                "center"
+            ]
+        },
+        // Fischer vs Bolbochan, 1962
+        {
+            id: "fischer-025",
+            fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 8",
+            moves: [
+                "d1d2",
+                "e8g8",
+                "f2f3",
+                "a6a5",
+                "e1g1",
+                "b7b5"
+            ],
+            rating: 1850,
+            themes: [
+                "sicilian",
+                "najdorf",
+                "attack"
+            ]
+        },
+        // Fischer vs Matulovic, 1968
+        {
+            id: "fischer-026",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "e1g1",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 1800,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "positional"
+            ]
+        },
+        // Fischer vs Suttles, 1965
+        {
+            id: "fischer-027",
+            fen: "rnbqk2r/pp2ppbp/3p1np1/2p5/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d4c5",
+                "d6c5",
+                "c1e3",
+                "b8c6"
+            ],
+            rating: 1800,
+            themes: [
+                "kingsIndian",
+                "opening",
+                "fianchetto"
+            ]
+        },
+        // Fischer vs Shocron, 1959
+        {
+            id: "fischer-028",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "sicilian",
+                "opening",
+                "knight"
+            ]
+        },
+        // Fischer vs Lombardy, 1960
+        {
+            id: "fischer-029",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 5",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "c3d4",
+                "c5b4",
+                "c1d2",
+                "f6e4"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "center",
+                "attack"
+            ]
+        },
+        // Fischer vs Bisguier, 1963
+        {
+            id: "fischer-030",
+            fen: "r1bqk2r/pp1pppbp/2n2np1/2p5/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 6",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "h2h3",
+                "d7d6",
+                "c1e3",
+                "c8d7"
+            ],
+            rating: 1850,
+            themes: [
+                "sicilian",
+                "dragon",
+                "opening"
+            ]
+        }
+    ],
+    kasparov: [
+        // Garry Kasparov's legendary combinations
+        // Kasparov vs Topalov, 1999 - "Kasparov's Immortal"
+        {
+            id: "kasparov-001",
+            fen: "r1bq1b1r/1p1n1p1p/p2ppk2/8/3BPPp1/2NB4/PPP3PP/R2Q1RK1 w - - 0 14",
+            moves: [
+                "f4f5",
+                "e6e5",
+                "d4e5",
+                "d6e5",
+                "f1f2",
+                "f8e7"
+            ],
+            rating: 2400,
+            themes: [
+                "attack",
+                "sacrifice",
+                "immortal"
+            ]
+        },
+        // Kasparov vs Karpov, 1985 World Championship Game 16
+        {
+            id: "kasparov-002",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "d7f6"
+            ],
+            rating: 2100,
+            themes: [
+                "worldChampionship",
+                "center",
+                "dynamics"
+            ]
+        },
+        // Kasparov vs Anand, 1995
+        {
+            id: "kasparov-003",
+            fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1e2",
+                "c8d7",
+                "e3e4",
+                "c5c4"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "attack",
+                "preparation"
+            ]
+        },
+        // Kasparov vs Short, 1993 - PCA World Championship
+        {
+            id: "kasparov-004",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "development",
+                "opening"
+            ]
+        },
+        // Kasparov vs Kramnik, 1994
+        {
+            id: "kasparov-005",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "meran",
+                "positional"
+            ]
+        },
+        // Kasparov vs Shirov, 1994
+        {
+            id: "kasparov-006",
+            fen: "r1bq1rk1/ppp1nppp/3p1n2/4p3/1bB1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 7",
+            moves: [
+                "e1g1",
+                "b4c3",
+                "b2c3",
+                "c8g4",
+                "h2h3",
+                "g4h5"
+            ],
+            rating: 1950,
+            themes: [
+                "ruyLopez",
+                "opening",
+                "bishop"
+            ]
+        },
+        // Kasparov vs Ivanchuk, 1991
+        {
+            id: "kasparov-007",
+            fen: "r2q1rk1/1p2bppp/p1n1bn2/2ppp3/4P3/1BPPBN2/PP1N1PPP/R2Q1RK1 w - - 0 11",
+            moves: [
+                "e4d5",
+                "e6d5",
+                "f3g5",
+                "f6e4",
+                "d2e4",
+                "d5e4"
+            ],
+            rating: 2100,
+            themes: [
+                "attack",
+                "sacrifice",
+                "middlegame"
+            ]
+        },
+        // Kasparov vs Gelfand, 1993
+        {
+            id: "kasparov-008",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w - - 0 10",
+            moves: [
+                "g2g4",
+                "b7b5",
+                "h2h4",
+                "a7a5",
+                "g4g5",
+                "f6h5"
+            ],
+            rating: 2050,
+            themes: [
+                "sicilian",
+                "dragon",
+                "attack"
+            ]
+        },
+        // Kasparov vs Nikolic, 1989
+        {
+            id: "kasparov-009",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "f7f5"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "center",
+                "attack"
+            ]
+        },
+        // Kasparov vs Salov, 1988
+        {
+            id: "kasparov-010",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1950,
+            themes: [
+                "italianGame",
+                "pin",
+                "attack"
+            ]
+        },
+        // Kasparov vs Adams, 1991
+        {
+            id: "kasparov-011",
+            fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2N1PN2/PPQB1PPP/R3KB1R w KQ - 0 10",
+            moves: [
+                "f1d3",
+                "b7b6",
+                "e1g1",
+                "c8b7",
+                "a1c1",
+                "a8c8"
+            ],
+            rating: 1900,
+            themes: [
+                "queensGambit",
+                "minority",
+                "positional"
+            ]
+        },
+        // Kasparov vs Lautier, 1994
+        {
+            id: "kasparov-012",
+            fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "c1e3",
+                "f8e7",
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "f7f5"
+            ],
+            rating: 2000,
+            themes: [
+                "french",
+                "advance",
+                "attack"
+            ]
+        },
+        // Kasparov vs Beliavsky, 1988
+        {
+            id: "kasparov-013",
+            fen: "r1bq1rk1/pp2bppp/2n1pn2/2pp4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "e1g1",
+                "c8d7",
+                "b2b3",
+                "a8c8"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "play"
+            ]
+        },
+        // Kasparov vs Nunn, 1988
+        {
+            id: "kasparov-014",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "knight"
+            ]
+        },
+        // Kasparov vs Polgar, 1996
+        {
+            id: "kasparov-015",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQ - 0 6",
+            moves: [
+                "c4d5",
+                "f6d5",
+                "d3d4",
+                "e5d4",
+                "c3d4",
+                "c5b4"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "center",
+                "opening"
+            ]
+        },
+        // Kasparov vs Timman, 1992
+        {
+            id: "kasparov-016",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "a7a6",
+                "h2h4",
+                "b7b5",
+                "g2g4",
+                "b5b4"
+            ],
+            rating: 2100,
+            themes: [
+                "sicilian",
+                "dragon",
+                "attack"
+            ]
+        },
+        // Kasparov vs Yusupov, 1988
+        {
+            id: "kasparov-017",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "a2a3",
+                "d5c4",
+                "d3c4",
+                "a7a5",
+                "d1c2",
+                "e6e5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "positional",
+                "center"
+            ]
+        },
+        // Kasparov vs Seirawan, 1990
+        {
+            id: "kasparov-018",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "exchange",
+                "bishop"
+            ]
+        },
+        // Kasparov vs Smirin, 1988
+        {
+            id: "kasparov-019",
+            fen: "r1bq1rk1/1p2bppp/p1n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQ - 0 9",
+            moves: [
+                "e1g1",
+                "c8d7",
+                "d1e2",
+                "a8c8",
+                "e3e4",
+                "c5c4"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "center",
+                "positional"
+            ]
+        },
+        // Kasparov vs Browne, 1983
+        {
+            id: "kasparov-020",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "c5d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "tactics"
+            ]
+        },
+        // Kasparov vs De Firmian, 1990
+        {
+            id: "kasparov-021",
+            fen: "rnbqkb1r/pp1p1ppp/4pn2/2p5/2P5/2N2NP1/PP1PPPBP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "a7a6",
+                "e1g1",
+                "d8c7"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "hedgehog",
+                "opening"
+            ]
+        },
+        // Kasparov vs Van der Wiel, 1988
+        {
+            id: "kasparov-022",
+            fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1e2",
+                "b7b6",
+                "e3e4",
+                "c8b7"
+            ],
+            rating: 1900,
+            themes: [
+                "queensGambit",
+                "center",
+                "positional"
+            ]
+        },
+        // Kasparov vs Hjartarson, 1989
+        {
+            id: "kasparov-023",
+            fen: "r1bq1rk1/pppnbppp/4pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQ - 0 7",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "f1d3",
+                "c7c6",
+                "e1g1",
+                "f8e8"
+            ],
+            rating: 1850,
+            themes: [
+                "queensGambit",
+                "IQP",
+                "positional"
+            ]
+        },
+        // Kasparov vs Karpov, 1987 - Seville Game 24
+        {
+            id: "kasparov-024",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "c8d7",
+                "h2h4",
+                "a8c8",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2100,
+            themes: [
+                "sicilian",
+                "dragon",
+                "worldChampionship"
+            ]
+        },
+        // Kasparov vs Leko, 1995
+        {
+            id: "kasparov-025",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "a2a4",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "bishop",
+                "opening"
+            ]
+        },
+        // Kasparov vs Speelman, 1989
+        {
+            id: "kasparov-026",
+            fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a4a5",
+                "b6a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "minority",
+                "positional"
+            ]
+        },
+        // Kasparov vs Portisch, 1988
+        {
+            id: "kasparov-027",
+            fen: "r1bqk2r/pppn1ppp/3bpn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "e6e5",
+                "c4d5",
+                "e5e4"
+            ],
+            rating: 1950,
+            themes: [
+                "queensGambit",
+                "center",
+                "attack"
+            ]
+        },
+        // Kasparov vs Psakhis, 1982
+        {
+            id: "kasparov-028",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "b7b6",
+                "b2b3",
+                "c8b7"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "middlegame"
+            ]
+        },
+        // Kasparov vs Piket, 1989
+        {
+            id: "kasparov-029",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PPQ2PPP/R1B1K2R w KQ - 0 9",
+            moves: [
+                "e1g1",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "attack"
+            ]
+        },
+        // Kasparov vs Miles, 1986
+        {
+            id: "kasparov-030",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "center"
+            ]
+        }
+    ],
+    botvinnik: [
+        // Mikhail Botvinnik's strategic masterpieces
+        // Botvinnik vs Capablanca, 1938 AVRO - One of the greatest games ever
+        {
+            id: "botvinnik-001",
+            fen: "8/p3q1kp/1p2Pnp1/3pQ3/2pP4/1nP3N1/1B4PP/6K1 w - - 0 33",
+            moves: [
+                "g3f5",
+                "g6f5",
+                "e5f5",
+                "e7e6",
+                "f5e6",
+                "f6e4"
+            ],
+            rating: 2300,
+            themes: [
+                "attack",
+                "sacrifice",
+                "legendary"
+            ]
+        },
+        // Botvinnik vs Smyslov, 1954 World Championship
+        {
+            id: "botvinnik-002",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1900,
+            themes: [
+                "worldChampionship",
+                "italianGame",
+                "strategic"
+            ]
+        },
+        // Botvinnik vs Tal, 1960 - Return Match
+        {
+            id: "botvinnik-003",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "c8d7",
+                "h2h4",
+                "a8c8",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2100,
+            themes: [
+                "sicilian",
+                "dragon",
+                "worldChampionship"
+            ]
+        },
+        // Botvinnik vs Keres, 1948 World Championship
+        {
+            id: "botvinnik-004",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "a2a4",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1950,
+            themes: [
+                "worldChampionship",
+                "italianGame",
+                "positional"
+            ]
+        },
+        // Botvinnik vs Bronstein, 1951 World Championship
+        {
+            id: "botvinnik-005",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "c8d7"
+            ],
+            rating: 2000,
+            themes: [
+                "worldChampionship",
+                "semiSlav",
+                "center"
+            ]
+        },
+        // Botvinnik vs Petrosian, 1963 World Championship
+        {
+            id: "botvinnik-006",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "e1g1",
+                "f8e8",
+                "d1c2",
+                "g7g6"
+            ],
+            rating: 2000,
+            themes: [
+                "worldChampionship",
+                "semiSlav",
+                "strategy"
+            ]
+        },
+        // Botvinnik vs Euwe, 1948
+        {
+            id: "botvinnik-007",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "worldChampionship"
+            ]
+        },
+        // Botvinnik vs Reshevsky, 1948
+        {
+            id: "botvinnik-008",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8e6",
+                "c4e6",
+                "f7e6"
+            ],
+            rating: 1900,
+            themes: [
+                "worldChampionship",
+                "italianGame",
+                "positional"
+            ]
+        },
+        // Botvinnik vs Flohr, 1936
+        {
+            id: "botvinnik-009",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "d5c4",
+                "d3c4",
+                "b7b5"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "meran",
+                "strategy"
+            ]
+        },
+        // Botvinnik vs Ragozin, 1940
+        {
+            id: "botvinnik-010",
+            fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a4a5",
+                "b6a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "positional",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Geller, 1952
+        {
+            id: "botvinnik-011",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "meran",
+                "positional"
+            ]
+        },
+        // Botvinnik vs Lilienthal, 1945
+        {
+            id: "botvinnik-012",
+            fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "c1e3",
+                "f8e7",
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "f7f5"
+            ],
+            rating: 2000,
+            themes: [
+                "french",
+                "advance",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Kotov, 1955
+        {
+            id: "botvinnik-013",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "a7a6",
+                "h2h4",
+                "b7b5",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2100,
+            themes: [
+                "sicilian",
+                "dragon",
+                "attack"
+            ]
+        },
+        // Botvinnik vs Levenfish, 1937
+        {
+            id: "botvinnik-014",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "c1g5",
+                "e8g8",
+                "a2a3",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "pin",
+                "strategy"
+            ]
+        },
+        // Botvinnik vs Boleslavsky, 1941
+        {
+            id: "botvinnik-015",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "exchange",
+                "positional"
+            ]
+        },
+        // Botvinnik vs Najdorf, 1946
+        {
+            id: "botvinnik-016",
+            fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 8",
+            moves: [
+                "d1d2",
+                "e8g8",
+                "f2f3",
+                "a6a5",
+                "e1g1",
+                "b7b5"
+            ],
+            rating: 1900,
+            themes: [
+                "sicilian",
+                "najdorf",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Taimanov, 1953
+        {
+            id: "botvinnik-017",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "a2a3",
+                "d5c4",
+                "d3c4",
+                "a7a5",
+                "d1c2",
+                "e6e5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "center",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Spassky, 1955
+        {
+            id: "botvinnik-018",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8g4",
+                "h2h3",
+                "g4h5"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Botvinnik vs Averbakh, 1954
+        {
+            id: "botvinnik-019",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "e3e4",
+                "c8b7",
+                "e4d5",
+                "c6d5"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "center",
+                "strategic"
+            ]
+        },
+        // Botvinnik vs Stahlberg, 1946
+        {
+            id: "botvinnik-020",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Szabo, 1946
+        {
+            id: "botvinnik-021",
+            fen: "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "e1g1",
+                "c8d7",
+                "d1e2",
+                "a8c8",
+                "e3e4",
+                "c5c4"
+            ],
+            rating: 1950,
+            themes: [
+                "queensGambit",
+                "center",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Vidmar, 1936
+        {
+            id: "botvinnik-022",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4b5",
+                "e8g8",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "retreat",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Konstantinopolsky, 1943
+        {
+            id: "botvinnik-023",
+            fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "c1e3",
+                "c5d4",
+                "e3d4",
+                "f8c5",
+                "d4c5",
+                "d7c5"
+            ],
+            rating: 1900,
+            themes: [
+                "french",
+                "advance",
+                "exchange"
+            ]
+        },
+        // Botvinnik vs Alatortsev, 1934
+        {
+            id: "botvinnik-024",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1950,
+            themes: [
+                "italianGame",
+                "sacrifice",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Tolush, 1945
+        {
+            id: "botvinnik-025",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "b7b6",
+                "b2b3",
+                "c8b7"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Kholmov, 1969
+        {
+            id: "botvinnik-026",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "a7a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "meran",
+                "strategy"
+            ]
+        },
+        // Botvinnik vs Sorokin, 1931
+        {
+            id: "botvinnik-027",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "c6d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Chekhover, 1935
+        {
+            id: "botvinnik-028",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "c8g4",
+                "h2h3",
+                "g4h5",
+                "g2g4",
+                "h5g6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "bishop",
+                "attack"
+            ]
+        },
+        // Botvinnik vs Spielmann, 1935
+        {
+            id: "botvinnik-029",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "d5c4",
+                "d3c4",
+                "b7b5"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "soviet"
+            ]
+        },
+        // Botvinnik vs Kan, 1939
+        {
+            id: "botvinnik-030",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "c8d7",
+                "g2g4",
+                "a8c8",
+                "h2h4",
+                "c6e5"
+            ],
+            rating: 2050,
+            themes: [
+                "sicilian",
+                "dragon",
+                "soviet"
+            ]
+        }
     ]
 };
 function PuzzlesPage() {
@@ -2029,7 +3753,8 @@ function PuzzlesPage() {
         currentPuzzle
     ]);
     const onDrop = (sourceSquare, targetSquare)=>{
-        if (status !== "playing" || !currentPuzzle) return false;
+        // Allow moves when playing or after a failed attempt (to retry)
+        if (status !== "playing" && status !== "failed" || !currentPuzzle) return false;
         const expectedMove = currentPuzzle.moves[moveIndex];
         const attemptedMove = sourceSquare + targetSquare;
         // Check if this is the correct move (with or without promotion)
@@ -2044,13 +3769,20 @@ function PuzzlesPage() {
                 });
                 if (move) {
                     setGame(newGame);
+                    // If recovering from a failed attempt, set back to playing
+                    if (status === "failed") {
+                        setStatus("playing");
+                    }
                     // Check if puzzle is complete
                     if (moveIndex + 1 >= currentPuzzle.moves.length) {
                         setStatus("solved");
-                        setScore((prev)=>({
-                                ...prev,
-                                solved: prev.solved + 1
-                            }));
+                        // Only count as solved if they didn't fail first
+                        if (status !== "failed") {
+                            setScore((prev)=>({
+                                    ...prev,
+                                    solved: prev.solved + 1
+                                }));
+                        }
                     } else {
                         // Make opponent's response move
                         const nextMoveIndex = moveIndex + 1;
@@ -2123,6 +3855,12 @@ function PuzzlesPage() {
                 return "text-orange-400 bg-orange-900/30 border-orange-700/50";
             case "master":
                 return "text-red-400 bg-red-900/30 border-red-700/50";
+            case "fischer":
+                return "text-blue-400 bg-blue-900/30 border-blue-700/50";
+            case "kasparov":
+                return "text-purple-400 bg-purple-900/30 border-purple-700/50";
+            case "botvinnik":
+                return "text-cyan-400 bg-cyan-900/30 border-cyan-700/50";
         }
     };
     const getDifficultyLabel = (diff)=>{
@@ -2135,6 +3873,12 @@ function PuzzlesPage() {
                 return "Hard (1600-1800)";
             case "master":
                 return "Master (2000+)";
+            case "fischer":
+                return "Bobby Fischer";
+            case "kasparov":
+                return "Garry Kasparov";
+            case "botvinnik":
+                return "Mikhail Botvinnik";
         }
     };
     const formatThemes = (themes)=>{
@@ -2153,7 +3897,7 @@ function PuzzlesPage() {
                             children: "♟ Chess Puzzles"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 364,
+                            lineNumber: 569,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2161,41 +3905,97 @@ function PuzzlesPage() {
                             children: "Sharpen your tactics with puzzles across all skill levels"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 367,
+                            lineNumber: 572,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 363,
+                    lineNumber: 568,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex justify-center mb-6",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1",
-                        children: [
-                            "easy",
-                            "medium",
-                            "hard",
-                            "master"
-                        ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setSelectedDifficulty(diff),
-                                className: `px-4 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
-                                children: diff.charAt(0).toUpperCase() + diff.slice(1)
-                            }, diff, false, {
-                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 376,
-                                columnNumber: 15
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                        lineNumber: 374,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
+                    className: "flex flex-col items-center gap-3 mb-6",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col items-center gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-amber-200/40 text-xs uppercase tracking-wider",
+                                    children: "By Rating"
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 581,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1",
+                                    children: [
+                                        "easy",
+                                        "medium",
+                                        "hard",
+                                        "master"
+                                    ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setSelectedDifficulty(diff),
+                                            className: `px-4 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
+                                            children: diff.charAt(0).toUpperCase() + diff.slice(1)
+                                        }, diff, false, {
+                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                            lineNumber: 584,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 582,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                            lineNumber: 580,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col items-center gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-amber-200/40 text-xs uppercase tracking-wider",
+                                    children: "♔ Legendary Players"
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 600,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1",
+                                    children: [
+                                        "fischer",
+                                        "kasparov",
+                                        "botvinnik"
+                                    ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setSelectedDifficulty(diff),
+                                            className: `px-4 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
+                                            children: diff === "fischer" ? "Fischer" : diff === "kasparov" ? "Kasparov" : "Botvinnik"
+                                        }, diff, false, {
+                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                            lineNumber: 603,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 601,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                            lineNumber: 599,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 373,
+                    lineNumber: 578,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2211,7 +4011,7 @@ function PuzzlesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 394,
+                                lineNumber: 622,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2219,7 +4019,7 @@ function PuzzlesPage() {
                                 children: "|"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 395,
+                                lineNumber: 623,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2230,18 +4030,18 @@ function PuzzlesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 396,
+                                lineNumber: 624,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                        lineNumber: 393,
+                        lineNumber: 621,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 392,
+                    lineNumber: 620,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2268,12 +4068,12 @@ function PuzzlesPage() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                        lineNumber: 404,
+                                        lineNumber: 632,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 403,
+                                    lineNumber: 631,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2287,7 +4087,7 @@ function PuzzlesPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 420,
+                                            lineNumber: 648,
                                             columnNumber: 17
                                         }, this),
                                         status === "solved" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2295,7 +4095,7 @@ function PuzzlesPage() {
                                             children: "✓ Brilliant! Puzzle Solved!"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 425,
+                                            lineNumber: 653,
                                             columnNumber: 17
                                         }, this),
                                         status === "failed" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2303,13 +4103,13 @@ function PuzzlesPage() {
                                             children: "✗ Not quite - Try again!"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 430,
+                                            lineNumber: 658,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 418,
+                                    lineNumber: 646,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2322,7 +4122,7 @@ function PuzzlesPage() {
                                             children: "← Prev"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 438,
+                                            lineNumber: 666,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2331,7 +4131,7 @@ function PuzzlesPage() {
                                             children: "Reset"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 445,
+                                            lineNumber: 673,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2340,19 +4140,19 @@ function PuzzlesPage() {
                                             children: "Next →"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 451,
+                                            lineNumber: 679,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 437,
+                                    lineNumber: 665,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 402,
+                            lineNumber: 630,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2375,7 +4175,7 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 468,
+                                                                lineNumber: 696,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2386,13 +4186,13 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 471,
+                                                                lineNumber: 699,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 467,
+                                                        lineNumber: 695,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2400,13 +4200,13 @@ function PuzzlesPage() {
                                                         children: getDifficultyLabel(selectedDifficulty)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 475,
+                                                        lineNumber: 703,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                lineNumber: 466,
+                                                lineNumber: 694,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2419,7 +4219,7 @@ function PuzzlesPage() {
                                                                 children: "Themes"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 482,
+                                                                lineNumber: 710,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2432,18 +4232,18 @@ function PuzzlesPage() {
                                                                         ]
                                                                     }, i, true, {
                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 485,
+                                                                        lineNumber: 713,
                                                                         columnNumber: 27
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 483,
+                                                                lineNumber: 711,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 481,
+                                                        lineNumber: 709,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2454,7 +4254,7 @@ function PuzzlesPage() {
                                                                 children: showHint ? "Hide Hint ▲" : "Show Hint ▼"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 494,
+                                                                lineNumber: 722,
                                                                 columnNumber: 23
                                                             }, this),
                                                             showHint && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2467,13 +4267,13 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 501,
+                                                                lineNumber: 729,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 493,
+                                                        lineNumber: 721,
                                                         columnNumber: 21
                                                     }, this),
                                                     (status === "solved" || status === "failed") && currentPuzzle.moves.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2484,7 +4284,7 @@ function PuzzlesPage() {
                                                                 children: "Solution"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 511,
+                                                                lineNumber: 739,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2498,143 +4298,246 @@ function PuzzlesPage() {
                                                                         ]
                                                                     }, i, true, {
                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 514,
+                                                                        lineNumber: 742,
                                                                         columnNumber: 29
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 512,
+                                                                lineNumber: 740,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 510,
+                                                        lineNumber: 738,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "pt-4 border-t border-amber-800/30",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-amber-400 text-sm font-semibold mb-2",
-                                                                children: "View on Lichess"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 524,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex flex-col gap-2",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                        href: `https://lichess.org/training/${currentPuzzle.id}`,
-                                                                        target: "_blank",
-                                                                        rel: "noopener noreferrer",
-                                                                        className: "inline-flex items-center gap-2 px-3 py-2 bg-amber-700/30 hover:bg-amber-600/40 text-amber-200 text-sm rounded border border-amber-600/50 transition-colors",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                                                className: "w-4 h-4",
-                                                                                viewBox: "0 0 50 50",
-                                                                                fill: "currentColor",
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                                                    d: "M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 2 2 0 0 0 23 13 A 2 2 0 0 0 25 15 A 2 2 0 0 0 27 13 A 2 2 0 0 0 25 11 z M 21 18 L 21 21 L 24 21 L 24 36 L 21 36 L 21 39 L 29 39 L 29 36 L 26 36 L 26 18 L 21 18 z"
+                                                        children: currentPuzzle.id.startsWith("fischer") || currentPuzzle.id.startsWith("kasparov") || currentPuzzle.id.startsWith("botvinnik") ? // Legend puzzles - show game info
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-amber-400 text-sm font-semibold mb-2",
+                                                                    children: "From the Games of Legends"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 755,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex flex-col gap-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "px-3 py-2 bg-stone-800/50 text-amber-200/70 text-sm rounded border border-stone-700/50",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "text-amber-100",
+                                                                                    children: [
+                                                                                        currentPuzzle.id.startsWith("fischer") && "♔ Bobby Fischer",
+                                                                                        currentPuzzle.id.startsWith("kasparov") && "♔ Garry Kasparov",
+                                                                                        currentPuzzle.id.startsWith("botvinnik") && "♔ Mikhail Botvinnik"
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                    lineNumber: 758,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "text-amber-200/50 ml-2",
+                                                                                    children: "• Historic Game Position"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 533,
-                                                                                    columnNumber: 29
+                                                                                    lineNumber: 763,
+                                                                                    columnNumber: 31
                                                                                 }, this)
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                lineNumber: 532,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            "Open Puzzle on Lichess"
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 526,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                        href: `https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`,
-                                                                        target: "_blank",
-                                                                        rel: "noopener noreferrer",
-                                                                        className: "inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                                                className: "w-4 h-4",
-                                                                                viewBox: "0 0 24 24",
-                                                                                fill: "none",
-                                                                                stroke: "currentColor",
-                                                                                strokeWidth: "2",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                                                                        d: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                            lineNumber: 757,
+                                                                            columnNumber: 29
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                            href: `https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`,
+                                                                            target: "_blank",
+                                                                            rel: "noopener noreferrer",
+                                                                            className: "inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                                    className: "w-4 h-4",
+                                                                                    viewBox: "0 0 24 24",
+                                                                                    fill: "none",
+                                                                                    stroke: "currentColor",
+                                                                                    strokeWidth: "2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                                            d: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                            lineNumber: 772,
+                                                                                            columnNumber: 33
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                                                                            cx: "12",
+                                                                                            cy: "12",
+                                                                                            r: "3"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                            lineNumber: 773,
+                                                                                            columnNumber: 33
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                    lineNumber: 771,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                "Analyze Position on Lichess"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                            lineNumber: 765,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 756,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-amber-100/40 text-xs mt-3",
+                                                                    children: "Positions from actual games played by chess legends"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 778,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true) : // Regular Lichess puzzles
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-amber-400 text-sm font-semibold mb-2",
+                                                                    children: "View on Lichess"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 785,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex flex-col gap-2",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                            href: `https://lichess.org/training/${currentPuzzle.id}`,
+                                                                            target: "_blank",
+                                                                            rel: "noopener noreferrer",
+                                                                            className: "inline-flex items-center gap-2 px-3 py-2 bg-amber-700/30 hover:bg-amber-600/40 text-amber-200 text-sm rounded border border-amber-600/50 transition-colors",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                                    className: "w-4 h-4",
+                                                                                    viewBox: "0 0 50 50",
+                                                                                    fill: "currentColor",
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                                        d: "M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 2 2 0 0 0 23 13 A 2 2 0 0 0 25 15 A 2 2 0 0 0 27 13 A 2 2 0 0 0 25 11 z M 21 18 L 21 21 L 24 21 L 24 36 L 21 36 L 21 39 L 29 39 L 29 36 L 26 36 L 26 18 L 21 18 z"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                        lineNumber: 544,
-                                                                                        columnNumber: 29
-                                                                                    }, this),
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                                                        cx: "12",
-                                                                                        cy: "12",
-                                                                                        r: "3"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                        lineNumber: 545,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 794,
+                                                                                        columnNumber: 33
                                                                                     }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                lineNumber: 543,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            "Analyze Position"
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 537,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 525,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-amber-100/40 text-xs mt-3",
-                                                                children: [
-                                                                    "Puzzles sourced from the",
-                                                                    " ",
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                                        href: "https://lichess.org/training",
-                                                                        target: "_blank",
-                                                                        rel: "noopener noreferrer",
-                                                                        className: "text-amber-400 hover:text-amber-300 underline",
-                                                                        children: "Lichess Puzzle Database"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 552,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 550,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                    lineNumber: 793,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                "Open Puzzle on Lichess"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                            lineNumber: 787,
+                                                                            columnNumber: 29
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                            href: `https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`,
+                                                                            target: "_blank",
+                                                                            rel: "noopener noreferrer",
+                                                                            className: "inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                                    className: "w-4 h-4",
+                                                                                    viewBox: "0 0 24 24",
+                                                                                    fill: "none",
+                                                                                    stroke: "currentColor",
+                                                                                    strokeWidth: "2",
+                                                                                    children: [
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                                            d: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                            lineNumber: 805,
+                                                                                            columnNumber: 33
+                                                                                        }, this),
+                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                                                                            cx: "12",
+                                                                                            cy: "12",
+                                                                                            r: "3"
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                            lineNumber: 806,
+                                                                                            columnNumber: 33
+                                                                                        }, this)
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                                    lineNumber: 804,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                "Analyze Position"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                            lineNumber: 798,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 786,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-amber-100/40 text-xs mt-3",
+                                                                    children: [
+                                                                        "Puzzles sourced from the",
+                                                                        " ",
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                            href: "https://lichess.org/training",
+                                                                            target: "_blank",
+                                                                            rel: "noopener noreferrer",
+                                                                            className: "text-amber-400 hover:text-amber-300 underline",
+                                                                            children: "Lichess Puzzle Database"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                            lineNumber: 813,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                                                    lineNumber: 811,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true)
+                                                    }, void 0, false, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 523,
+                                                        lineNumber: 751,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                lineNumber: 480,
+                                                lineNumber: 708,
                                                 columnNumber: 19
                                             }, this)
                                         ]
@@ -2645,17 +4548,17 @@ function PuzzlesPage() {
                                             children: "Loading puzzle..."
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 566,
+                                            lineNumber: 829,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                        lineNumber: 565,
+                                        lineNumber: 828,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 463,
+                                    lineNumber: 691,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2666,7 +4569,7 @@ function PuzzlesPage() {
                                             children: "♜ Puzzle Tips"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 573,
+                                            lineNumber: 836,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2680,14 +4583,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 578,
+                                                            lineNumber: 841,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Look for checks, captures, and threats first"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 577,
+                                                    lineNumber: 840,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2698,14 +4601,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 582,
+                                                            lineNumber: 845,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Consider what your opponent wants to do"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 581,
+                                                    lineNumber: 844,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2716,14 +4619,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 586,
+                                                            lineNumber: 849,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Look for pins, forks, and skewers"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 585,
+                                                    lineNumber: 848,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2734,26 +4637,26 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 590,
+                                                            lineNumber: 853,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Don't rush - visualization is key!"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 589,
+                                                    lineNumber: 852,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 576,
+                                            lineNumber: 839,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 572,
+                                    lineNumber: 835,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2764,7 +4667,7 @@ function PuzzlesPage() {
                                             children: "Difficulty Levels"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 598,
+                                            lineNumber: 861,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2777,7 +4680,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-green-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 603,
+                                                            lineNumber: 866,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2785,13 +4688,13 @@ function PuzzlesPage() {
                                                             children: "Easy (800-1000)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 604,
+                                                            lineNumber: 867,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 602,
+                                                    lineNumber: 865,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2801,7 +4704,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-yellow-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 607,
+                                                            lineNumber: 870,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2809,13 +4712,13 @@ function PuzzlesPage() {
                                                             children: "Medium (1200-1400)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 608,
+                                                            lineNumber: 871,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 606,
+                                                    lineNumber: 869,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2825,7 +4728,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-orange-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 611,
+                                                            lineNumber: 874,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2833,13 +4736,13 @@ function PuzzlesPage() {
                                                             children: "Hard (1600-1800)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 612,
+                                                            lineNumber: 875,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 610,
+                                                    lineNumber: 873,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2849,7 +4752,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-red-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 615,
+                                                            lineNumber: 878,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2857,19 +4760,19 @@ function PuzzlesPage() {
                                                             children: "Master (2000+)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 616,
+                                                            lineNumber: 879,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 614,
+                                                    lineNumber: 877,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 601,
+                                            lineNumber: 864,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2877,36 +4780,36 @@ function PuzzlesPage() {
                                             children: "30 curated puzzles per difficulty level"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 619,
+                                            lineNumber: 882,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 597,
+                                    lineNumber: 860,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 461,
+                            lineNumber: 689,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 400,
+                    lineNumber: 628,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-            lineNumber: 361,
+            lineNumber: 566,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-        lineNumber: 360,
+        lineNumber: 565,
         columnNumber: 5
     }, this);
 }

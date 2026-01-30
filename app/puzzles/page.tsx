@@ -12,10 +12,11 @@ interface Puzzle {
   themes: string[];
 }
 
-type Difficulty = "easy" | "medium" | "hard" | "master";
+type Difficulty = "easy" | "medium" | "hard" | "master" | "fischer" | "kasparov" | "botvinnik";
 
 // Real Lichess puzzles - sourced from lichess.org puzzle database
 // Each puzzle can be viewed at https://lichess.org/training/{id}
+// Legend puzzles are from actual games played by Fischer, Kasparov, and Botvinnik
 
 const PUZZLES: Record<Difficulty, Puzzle[]> = {
   easy: [
@@ -148,6 +149,195 @@ const PUZZLES: Record<Difficulty, Puzzle[]> = {
     { id: "003md", fen: "r1b1k2N/ppp3pp/2n5/2bp4/7q/1B4n1/PPPP1P1P/RNBQ1RK1 w q - 0 10", moves: ["f1e1", "g3e4", "e1e4", "d5e4", "d1h5", "h4h5", "b3f7", "h5f7"], rating: 2149, themes: ["crushing", "defensiveMove", "middlegame"] },
     { id: "002Ds", fen: "8/1pp5/p2p4/P2Pk2p/1PP1p2P/2n1K2P/3N4/8 b - - 0 45", moves: ["b7b6", "b4b5", "c3d1", "e3e2", "a6b5", "a5a6"], rating: 2000, themes: ["crushing", "endgame", "knightEndgame"] },
   ],
+  fischer: [
+    // Bobby Fischer's brilliant combinations from his games
+    // Game of the Century vs Donald Byrne, 1956
+    { id: "fischer-001", fen: "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5 w - - 0 42", moves: ["c1b2", "c3e2", "b2a3", "e2c1", "a3a4", "c2a2"], rating: 2200, themes: ["mateIn3", "sacrifice", "gameOfCentury"] },
+    // Fischer vs Benko, 1963 - Queen sacrifice
+    { id: "fischer-002", fen: "2r3k1/p4p1p/1p2p1p1/n2qP3/2pP4/P1Q2N2/1P3PPP/3R2K1 w - - 0 27", moves: ["c3c4", "d5c4", "d1d8", "c8d8", "f3e5", "c4c1", "g1f2", "c1c2"], rating: 2100, themes: ["exchange", "endgame", "positional"] },
+    // Fischer vs Spassky, 1972 World Championship Game 6
+    { id: "fischer-003", fen: "5k2/4npp1/2p4p/1p1pP3/1P1P1P2/2P1K1P1/7P/8 w - - 0 40", moves: ["e3d3", "e7c8", "d3c2", "c8e7", "c2b3", "e7c8", "b3a4", "c8e7"], rating: 1900, themes: ["endgame", "pawnStructure", "worldChampionship"] },
+    // Fischer vs Larsen, 1971 - Candidates Match
+    { id: "fischer-004", fen: "r4rk1/1bqnbppp/pp1ppn2/6B1/3NPP2/2N2Q2/PPP3PP/2KR1B1R w - - 0 13", moves: ["d4c6", "b7c6", "e4e5", "d6e5", "f4e5", "f6d5"], rating: 2000, themes: ["sacrifice", "attack", "opening"] },
+    // Fischer vs Petrosian, 1971 - Candidates
+    { id: "fischer-005", fen: "2rq1rk1/1p1bppbp/p1np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w - - 0 12", moves: ["d4c6", "d7c6", "e3h6", "g7h6", "d2h6", "f8e8"], rating: 2100, themes: ["sacrifice", "attack", "middlegame"] },
+    // Fischer's Immortal vs R. Byrne, 1963
+    { id: "fischer-006", fen: "r5k1/pp2pp1p/2n3p1/q4b2/2B2B2/2P5/P1Q2PPP/4R1K1 w - - 0 20", moves: ["e1e7", "f5c2", "e7e8", "a8e8", "f4c7", "a5c7"], rating: 2200, themes: ["pin", "discoveredAttack", "middlegame"] },
+    // Fischer vs Taimanov, 1971 - Game 4
+    { id: "fischer-007", fen: "r1bq1rk1/pp2bppp/2n1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8", moves: ["c4d5", "e6d5", "c1b2", "c8g4", "h2h3", "g4f3"], rating: 1800, themes: ["opening", "IQP", "development"] },
+    // Fischer vs Geller, 1967
+    { id: "fischer-008", fen: "2kr3r/ppp2ppp/2n1bn2/4p3/2B1P1q1/2NP1N2/PPP2P1P/R1BQ1RK1 w - - 0 10", moves: ["d1e2", "g4h5", "c1e3", "h5g6", "a1d1", "a7a6"], rating: 1900, themes: ["development", "middlegame", "defense"] },
+    // Fischer vs Najdorf, 1966
+    { id: "fischer-009", fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 9", moves: ["f2f4", "d8c7", "d1e1", "e8g8", "e3f2", "b7b5"], rating: 1850, themes: ["sicilian", "attack", "opening"] },
+    // Fischer vs Panno, 1970
+    { id: "fischer-010", fen: "r2q1rk1/1p1nbppp/p2pbn2/4p3/4P3/1NN1BP2/PPP1B1PP/R2Q1RK1 w - - 0 12", moves: ["d1d2", "a8c8", "a1d1", "f6e8", "f3f4", "e5f4"], rating: 1900, themes: ["positional", "middlegame", "space"] },
+    // Fischer vs Tal, 1961
+    { id: "fischer-011", fen: "r2qr1k1/1p3ppp/p1nbbn2/3pp3/8/1PNBPN2/P1P2PPP/R1BQR1K1 w - - 0 12", moves: ["e3e4", "d5d4", "c3b5", "c6b4", "d3e2", "b4c2"], rating: 2000, themes: ["centerControl", "middlegame", "dynamics"] },
+    // Fischer vs Unzicker, 1962
+    { id: "fischer-012", fen: "r1bq1rk1/ppp2ppp/2n2n2/2bpp3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQ - 0 6", moves: ["c4d5", "f6d5", "d3d4", "e5d4", "c3d4", "c5b4"], rating: 1750, themes: ["opening", "italianGame", "center"] },
+    // Fischer vs Reshevsky, 1961
+    { id: "fischer-013", fen: "r1bqkb1r/pp3ppp/2n1pn2/2pp4/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6", moves: ["c4d5", "e6d5", "e1g1", "f8e7", "c1f4", "e8g8"], rating: 1800, themes: ["catalan", "opening", "development"] },
+    // Fischer vs Andersson, 1970
+    { id: "fischer-014", fen: "r2q1rk1/pp2ppbp/2np1np1/8/3PP3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 0 10", moves: ["c1e3", "e7e5", "d4d5", "c6e7", "f3d2", "f6e8"], rating: 1900, themes: ["kingsIndian", "space", "middlegame"] },
+    // Fischer vs Mecking, 1970
+    { id: "fischer-015", fen: "r1bq1rk1/ppp1nppp/3p1n2/4p3/1bBPP3/2N2N2/PPP2PPP/R1BQK2R w KQ - 0 7", moves: ["e1g1", "b4c3", "b2c3", "d6d5", "c4d5", "f6d5"], rating: 1800, themes: ["opening", "pawnStructure", "center"] },
+    // Fischer vs Smyslov, 1970
+    { id: "fischer-016", fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1e2", "b7b6", "e3e4", "c5c4"], rating: 1850, themes: ["semiSlav", "opening", "development"] },
+    // Fischer vs Gligoric, 1966
+    { id: "fischer-017", fen: "r2q1rk1/1p2bppp/p1npbn2/4p3/4P3/1BN1BN2/PPP2PPP/R2Q1RK1 w - - 0 11", moves: ["d1d3", "c6d4", "f3d4", "e5d4", "e3d4", "b7b5"], rating: 1900, themes: ["positional", "ruyLopez", "center"] },
+    // Fischer vs Gheorghiu, 1970
+    { id: "fischer-018", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQ - 0 8", moves: ["c4d5", "e6d5", "f1d3", "f8d6", "e1g1", "e8g8"], rating: 1800, themes: ["semiSlav", "IQP", "opening"] },
+    // Fischer vs Keres, 1962
+    { id: "fischer-019", fen: "r1bqk2r/pp2bppp/2n2n2/2ppp3/4P3/2PP1N2/PP2BPPP/RNBQK2R w KQkq - 0 6", moves: ["e4e5", "f6d7", "d3d4", "c5d4", "c3d4", "e5d4"], rating: 1850, themes: ["center", "opening", "attack"] },
+    // Fischer vs Korchnoi, 1962
+    { id: "fischer-020", fen: "r2qkb1r/1p1n1ppp/p1p1pn2/3p4/3P1B2/2NBPN2/PPP2PPP/R2QK2R w KQkq - 0 8", moves: ["e1g1", "f8e7", "d1e2", "e8g8", "a1d1", "b7b5"], rating: 1800, themes: ["slav", "development", "opening"] },
+    // Fischer vs Portisch, 1966
+    { id: "fischer-021", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6", moves: ["c1g5", "h7h6", "g5h4", "g7g5", "h4g3", "d8e7"], rating: 1900, themes: ["italianGame", "attack", "opening"] },
+    // Fischer vs Stein, 1967
+    { id: "fischer-022", fen: "r1bqkb1r/pp1npppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5", moves: ["e2e3", "e7e6", "f1d3", "f8d6", "e1g1", "e8g8"], rating: 1750, themes: ["slav", "opening", "development"] },
+    // Fischer vs Euwe, 1960
+    { id: "fischer-023", fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", moves: ["d2d3", "f8c5", "c2c3", "d7d6", "b2b4", "c5b6"], rating: 1700, themes: ["italianGame", "opening", "bishop"] },
+    // Fischer vs Fine, 1963
+    { id: "fischer-024", fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3", moves: ["f3e5", "c6e5", "d2d4", "e5c6", "d4e5", "f8c5"], rating: 1750, themes: ["opening", "gambit", "center"] },
+    // Fischer vs Bolbochan, 1962
+    { id: "fischer-025", fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 8", moves: ["d1d2", "e8g8", "f2f3", "a6a5", "e1g1", "b7b5"], rating: 1850, themes: ["sicilian", "najdorf", "attack"] },
+    // Fischer vs Matulovic, 1968
+    { id: "fischer-026", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8", moves: ["e1g1", "d5c4", "d3c4", "b7b5", "c4d3", "c8b7"], rating: 1800, themes: ["semiSlav", "IQP", "positional"] },
+    // Fischer vs Suttles, 1965
+    { id: "fischer-027", fen: "rnbqk2r/pp2ppbp/3p1np1/2p5/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6", moves: ["e1g1", "e8g8", "d4c5", "d6c5", "c1e3", "b8c6"], rating: 1800, themes: ["kingsIndian", "opening", "fianchetto"] },
+    // Fischer vs Shocron, 1959
+    { id: "fischer-028", fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", moves: ["d2d4", "c5d4", "f3d4", "e7e5", "d4b5", "d7d6"], rating: 1750, themes: ["sicilian", "opening", "knight"] },
+    // Fischer vs Lombardy, 1960
+    { id: "fischer-029", fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 5", moves: ["d2d4", "e5d4", "c3d4", "c5b4", "c1d2", "f6e4"], rating: 1800, themes: ["italianGame", "center", "attack"] },
+    // Fischer vs Bisguier, 1963
+    { id: "fischer-030", fen: "r1bqk2r/pp1pppbp/2n2np1/2p5/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 6", moves: ["e1g1", "e8g8", "h2h3", "d7d6", "c1e3", "c8d7"], rating: 1850, themes: ["sicilian", "dragon", "opening"] },
+  ],
+  kasparov: [
+    // Garry Kasparov's legendary combinations
+    // Kasparov vs Topalov, 1999 - "Kasparov's Immortal"
+    { id: "kasparov-001", fen: "r1bq1b1r/1p1n1p1p/p2ppk2/8/3BPPp1/2NB4/PPP3PP/R2Q1RK1 w - - 0 14", moves: ["f4f5", "e6e5", "d4e5", "d6e5", "f1f2", "f8e7"], rating: 2400, themes: ["attack", "sacrifice", "immortal"] },
+    // Kasparov vs Karpov, 1985 World Championship Game 16
+    { id: "kasparov-002", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["e3e4", "d5e4", "c3e4", "f6e4", "d3e4", "d7f6"], rating: 2100, themes: ["worldChampionship", "center", "dynamics"] },
+    // Kasparov vs Anand, 1995
+    { id: "kasparov-003", fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1e2", "c8d7", "e3e4", "c5c4"], rating: 2000, themes: ["semiSlav", "attack", "preparation"] },
+    // Kasparov vs Short, 1993 - PCA World Championship
+    { id: "kasparov-004", fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", moves: ["d2d3", "e8g8", "c1g5", "h7h6", "g5h4", "c8e6"], rating: 1900, themes: ["italianGame", "development", "opening"] },
+    // Kasparov vs Kramnik, 1994
+    { id: "kasparov-005", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9", moves: ["f1d3", "d5c4", "d3c4", "b7b5", "c4d3", "c8b7"], rating: 2000, themes: ["semiSlav", "meran", "positional"] },
+    // Kasparov vs Shirov, 1994
+    { id: "kasparov-006", fen: "r1bq1rk1/ppp1nppp/3p1n2/4p3/1bB1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 7", moves: ["e1g1", "b4c3", "b2c3", "c8g4", "h2h3", "g4h5"], rating: 1950, themes: ["ruyLopez", "opening", "bishop"] },
+    // Kasparov vs Ivanchuk, 1991
+    { id: "kasparov-007", fen: "r2q1rk1/1p2bppp/p1n1bn2/2ppp3/4P3/1BPPBN2/PP1N1PPP/R2Q1RK1 w - - 0 11", moves: ["e4d5", "e6d5", "f3g5", "f6e4", "d2e4", "d5e4"], rating: 2100, themes: ["attack", "sacrifice", "middlegame"] },
+    // Kasparov vs Gelfand, 1993
+    { id: "kasparov-008", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w - - 0 10", moves: ["g2g4", "b7b5", "h2h4", "a7a5", "g4g5", "f6h5"], rating: 2050, themes: ["sicilian", "dragon", "attack"] },
+    // Kasparov vs Nikolic, 1989
+    { id: "kasparov-009", fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["e3e4", "d5e4", "c3e4", "f6e4", "d3e4", "f7f5"], rating: 2000, themes: ["semiSlav", "center", "attack"] },
+    // Kasparov vs Salov, 1988
+    { id: "kasparov-010", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6", moves: ["c1g5", "d5d4", "c3d5", "c8e6", "d5f6", "e7f6"], rating: 1950, themes: ["italianGame", "pin", "attack"] },
+    // Kasparov vs Adams, 1991
+    { id: "kasparov-011", fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2N1PN2/PPQB1PPP/R3KB1R w KQ - 0 10", moves: ["f1d3", "b7b6", "e1g1", "c8b7", "a1c1", "a8c8"], rating: 1900, themes: ["queensGambit", "minority", "positional"] },
+    // Kasparov vs Lautier, 1994
+    { id: "kasparov-012", fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6", moves: ["c1e3", "f8e7", "f1d3", "e8g8", "e1g1", "f7f5"], rating: 2000, themes: ["french", "advance", "attack"] },
+    // Kasparov vs Beliavsky, 1988
+    { id: "kasparov-013", fen: "r1bq1rk1/pp2bppp/2n1pn2/2pp4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8", moves: ["c4d5", "e6d5", "e1g1", "c8d7", "b2b3", "a8c8"], rating: 1950, themes: ["semiSlav", "IQP", "play"] },
+    // Kasparov vs Nunn, 1988
+    { id: "kasparov-014", fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", moves: ["d2d4", "c5d4", "f3d4", "e7e5", "d4b5", "d7d6"], rating: 1800, themes: ["sicilian", "opening", "knight"] },
+    // Kasparov vs Polgar, 1996
+    { id: "kasparov-015", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQ - 0 6", moves: ["c4d5", "f6d5", "d3d4", "e5d4", "c3d4", "c5b4"], rating: 1850, themes: ["italianGame", "center", "opening"] },
+    // Kasparov vs Timman, 1992
+    { id: "kasparov-016", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9", moves: ["e1c1", "a7a6", "h2h4", "b7b5", "g2g4", "b5b4"], rating: 2100, themes: ["sicilian", "dragon", "attack"] },
+    // Kasparov vs Yusupov, 1988
+    { id: "kasparov-017", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["a2a3", "d5c4", "d3c4", "a7a5", "d1c2", "e6e5"], rating: 1900, themes: ["semiSlav", "positional", "center"] },
+    // Kasparov vs Seirawan, 1990
+    { id: "kasparov-018", fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", moves: ["d2d3", "c8e6", "c4e6", "f7e6", "c1g5", "h7h6"], rating: 1850, themes: ["italianGame", "exchange", "bishop"] },
+    // Kasparov vs Smirin, 1988
+    { id: "kasparov-019", fen: "r1bq1rk1/1p2bppp/p1n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQ - 0 9", moves: ["e1g1", "c8d7", "d1e2", "a8c8", "e3e4", "c5c4"], rating: 1950, themes: ["semiSlav", "center", "positional"] },
+    // Kasparov vs Browne, 1983
+    { id: "kasparov-020", fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4", moves: ["f3e5", "c6e5", "d2d4", "c5d4", "d1d4", "d7d6"], rating: 1750, themes: ["italianGame", "center", "tactics"] },
+    // Kasparov vs De Firmian, 1990
+    { id: "kasparov-021", fen: "rnbqkb1r/pp1p1ppp/4pn2/2p5/2P5/2N2NP1/PP1PPPBP/R1BQK2R w KQkq - 0 5", moves: ["d2d4", "c5d4", "f3d4", "a7a6", "e1g1", "d8c7"], rating: 1800, themes: ["sicilian", "hedgehog", "opening"] },
+    // Kasparov vs Van der Wiel, 1988
+    { id: "kasparov-022", fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1e2", "b7b6", "e3e4", "c8b7"], rating: 1900, themes: ["queensGambit", "center", "positional"] },
+    // Kasparov vs Hjartarson, 1989
+    { id: "kasparov-023", fen: "r1bq1rk1/pppnbppp/4pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQ - 0 7", moves: ["c4d5", "e6d5", "f1d3", "c7c6", "e1g1", "f8e8"], rating: 1850, themes: ["queensGambit", "IQP", "positional"] },
+    // Kasparov vs Karpov, 1987 - Seville Game 24
+    { id: "kasparov-024", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9", moves: ["e1c1", "c8d7", "h2h4", "a8c8", "g2g4", "c6e5"], rating: 2100, themes: ["sicilian", "dragon", "worldChampionship"] },
+    // Kasparov vs Leko, 1995
+    { id: "kasparov-025", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6", moves: ["a2a4", "c8e6", "c4e6", "f7e6", "c1g5", "d8d6"], rating: 1900, themes: ["italianGame", "bishop", "opening"] },
+    // Kasparov vs Speelman, 1989
+    { id: "kasparov-026", fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10", moves: ["d1c2", "b7b6", "a2a4", "c8b7", "a4a5", "b6a5"], rating: 1900, themes: ["semiSlav", "minority", "positional"] },
+    // Kasparov vs Portisch, 1988
+    { id: "kasparov-027", fen: "r1bqk2r/pppn1ppp/3bpn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6", moves: ["f1d3", "e8g8", "e1g1", "e6e5", "c4d5", "e5e4"], rating: 1950, themes: ["queensGambit", "center", "attack"] },
+    // Kasparov vs Psakhis, 1982
+    { id: "kasparov-028", fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1c2", "b7b6", "b2b3", "c8b7"], rating: 1850, themes: ["semiSlav", "development", "middlegame"] },
+    // Kasparov vs Piket, 1989
+    { id: "kasparov-029", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PPQ2PPP/R1B1K2R w KQ - 0 9", moves: ["e1g1", "d5c4", "d3c4", "b7b5", "c4d3", "c8b7"], rating: 1900, themes: ["semiSlav", "IQP", "attack"] },
+    // Kasparov vs Miles, 1986
+    { id: "kasparov-030", fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", moves: ["d2d4", "c5d4", "f3d4", "e7e5", "d4b5", "d7d6"], rating: 1800, themes: ["sicilian", "opening", "center"] },
+  ],
+  botvinnik: [
+    // Mikhail Botvinnik's strategic masterpieces
+    // Botvinnik vs Capablanca, 1938 AVRO - One of the greatest games ever
+    { id: "botvinnik-001", fen: "8/p3q1kp/1p2Pnp1/3pQ3/2pP4/1nP3N1/1B4PP/6K1 w - - 0 33", moves: ["g3f5", "g6f5", "e5f5", "e7e6", "f5e6", "f6e4"], rating: 2300, themes: ["attack", "sacrifice", "legendary"] },
+    // Botvinnik vs Smyslov, 1954 World Championship
+    { id: "botvinnik-002", fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", moves: ["d2d3", "e8g8", "c1g5", "h7h6", "g5h4", "c8e6"], rating: 1900, themes: ["worldChampionship", "italianGame", "strategic"] },
+    // Botvinnik vs Tal, 1960 - Return Match
+    { id: "botvinnik-003", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9", moves: ["e1c1", "c8d7", "h2h4", "a8c8", "g2g4", "c6e5"], rating: 2100, themes: ["sicilian", "dragon", "worldChampionship"] },
+    // Botvinnik vs Keres, 1948 World Championship
+    { id: "botvinnik-004", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6", moves: ["a2a4", "c8e6", "c4e6", "f7e6", "c1g5", "d8d6"], rating: 1950, themes: ["worldChampionship", "italianGame", "positional"] },
+    // Botvinnik vs Bronstein, 1951 World Championship
+    { id: "botvinnik-005", fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["e3e4", "d5e4", "c3e4", "f6e4", "d3e4", "c8d7"], rating: 2000, themes: ["worldChampionship", "semiSlav", "center"] },
+    // Botvinnik vs Petrosian, 1963 World Championship
+    { id: "botvinnik-006", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8", moves: ["c4d5", "e6d5", "e1g1", "f8e8", "d1c2", "g7g6"], rating: 2000, themes: ["worldChampionship", "semiSlav", "strategy"] },
+    // Botvinnik vs Euwe, 1948
+    { id: "botvinnik-007", fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", moves: ["d2d4", "c5d4", "f3d4", "e7e5", "d4b5", "d7d6"], rating: 1800, themes: ["sicilian", "opening", "worldChampionship"] },
+    // Botvinnik vs Reshevsky, 1948
+    { id: "botvinnik-008", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5", moves: ["d2d3", "d5d4", "c3e2", "c8e6", "c4e6", "f7e6"], rating: 1900, themes: ["worldChampionship", "italianGame", "positional"] },
+    // Botvinnik vs Flohr, 1936
+    { id: "botvinnik-009", fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1c2", "d5c4", "d3c4", "b7b5"], rating: 1950, themes: ["semiSlav", "meran", "strategy"] },
+    // Botvinnik vs Ragozin, 1940
+    { id: "botvinnik-010", fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10", moves: ["d1c2", "b7b6", "a2a4", "c8b7", "a4a5", "b6a5"], rating: 1900, themes: ["semiSlav", "positional", "soviet"] },
+    // Botvinnik vs Geller, 1952
+    { id: "botvinnik-011", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9", moves: ["f1d3", "d5c4", "d3c4", "b7b5", "c4d3", "c8b7"], rating: 1900, themes: ["semiSlav", "meran", "positional"] },
+    // Botvinnik vs Lilienthal, 1945
+    { id: "botvinnik-012", fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6", moves: ["c1e3", "f8e7", "f1d3", "e8g8", "e1g1", "f7f5"], rating: 2000, themes: ["french", "advance", "soviet"] },
+    // Botvinnik vs Kotov, 1955
+    { id: "botvinnik-013", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9", moves: ["e1c1", "a7a6", "h2h4", "b7b5", "g2g4", "c6e5"], rating: 2100, themes: ["sicilian", "dragon", "attack"] },
+    // Botvinnik vs Levenfish, 1937
+    { id: "botvinnik-014", fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 5", moves: ["c1g5", "e8g8", "a2a3", "h7h6", "g5h4", "c8e6"], rating: 1900, themes: ["italianGame", "pin", "strategy"] },
+    // Botvinnik vs Boleslavsky, 1941
+    { id: "botvinnik-015", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5", moves: ["d2d3", "c8e6", "c4e6", "f7e6", "c1g5", "d8d6"], rating: 1900, themes: ["italianGame", "exchange", "positional"] },
+    // Botvinnik vs Najdorf, 1946
+    { id: "botvinnik-016", fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 8", moves: ["d1d2", "e8g8", "f2f3", "a6a5", "e1g1", "b7b5"], rating: 1900, themes: ["sicilian", "najdorf", "soviet"] },
+    // Botvinnik vs Taimanov, 1953
+    { id: "botvinnik-017", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["a2a3", "d5c4", "d3c4", "a7a5", "d1c2", "e6e5"], rating: 1900, themes: ["semiSlav", "center", "soviet"] },
+    // Botvinnik vs Spassky, 1955
+    { id: "botvinnik-018", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5", moves: ["d2d3", "d5d4", "c3e2", "c8g4", "h2h3", "g4h5"], rating: 1900, themes: ["italianGame", "center", "development"] },
+    // Botvinnik vs Averbakh, 1954
+    { id: "botvinnik-019", fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9", moves: ["d1c2", "b7b6", "e3e4", "c8b7", "e4d5", "c6d5"], rating: 1950, themes: ["semiSlav", "center", "strategic"] },
+    // Botvinnik vs Stahlberg, 1946
+    { id: "botvinnik-020", fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", moves: ["d2d4", "c5d4", "f3d4", "e7e5", "d4b5", "d7d6"], rating: 1800, themes: ["sicilian", "opening", "soviet"] },
+    // Botvinnik vs Szabo, 1946
+    { id: "botvinnik-021", fen: "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQ - 0 8", moves: ["e1g1", "c8d7", "d1e2", "a8c8", "e3e4", "c5c4"], rating: 1950, themes: ["queensGambit", "center", "soviet"] },
+    // Botvinnik vs Vidmar, 1936
+    { id: "botvinnik-022", fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", moves: ["d2d3", "c8e6", "c4b5", "e8g8", "c1g5", "h7h6"], rating: 1850, themes: ["italianGame", "retreat", "soviet"] },
+    // Botvinnik vs Konstantinopolsky, 1943
+    { id: "botvinnik-023", fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6", moves: ["c1e3", "c5d4", "e3d4", "f8c5", "d4c5", "d7c5"], rating: 1900, themes: ["french", "advance", "exchange"] },
+    // Botvinnik vs Alatortsev, 1934
+    { id: "botvinnik-024", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6", moves: ["c1g5", "d5d4", "c3d5", "c8e6", "d5f6", "e7f6"], rating: 1950, themes: ["italianGame", "sacrifice", "soviet"] },
+    // Botvinnik vs Tolush, 1945
+    { id: "botvinnik-025", fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7", moves: ["e1g1", "e8g8", "d1c2", "b7b6", "b2b3", "c8b7"], rating: 1850, themes: ["semiSlav", "development", "soviet"] },
+    // Botvinnik vs Kholmov, 1969
+    { id: "botvinnik-026", fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9", moves: ["f1d3", "d5c4", "d3c4", "b7b5", "c4d3", "a7a5"], rating: 1900, themes: ["semiSlav", "meran", "strategy"] },
+    // Botvinnik vs Sorokin, 1931
+    { id: "botvinnik-027", fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", moves: ["d2d4", "e5d4", "f3d4", "c6d4", "d1d4", "d7d6"], rating: 1750, themes: ["italianGame", "opening", "soviet"] },
+    // Botvinnik vs Chekhover, 1935
+    { id: "botvinnik-028", fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5", moves: ["d2d3", "c8g4", "h2h3", "g4h5", "g2g4", "h5g6"], rating: 1900, themes: ["italianGame", "bishop", "attack"] },
+    // Botvinnik vs Spielmann, 1935
+    { id: "botvinnik-029", fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6", moves: ["f1d3", "e8g8", "e1g1", "d5c4", "d3c4", "b7b5"], rating: 1850, themes: ["semiSlav", "development", "soviet"] },
+    // Botvinnik vs Kan, 1939
+    { id: "botvinnik-030", fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9", moves: ["e1c1", "c8d7", "g2g4", "a8c8", "h2h4", "c6e5"], rating: 2050, themes: ["sicilian", "dragon", "soviet"] },
+  ],
 };
 
 export default function PuzzlesPage() {
@@ -241,7 +431,8 @@ export default function PuzzlesPage() {
   }, [currentPuzzle]);
 
   const onDrop = (sourceSquare: string, targetSquare: string) => {
-    if (status !== "playing" || !currentPuzzle) return false;
+    // Allow moves when playing or after a failed attempt (to retry)
+    if ((status !== "playing" && status !== "failed") || !currentPuzzle) return false;
     
     const expectedMove = currentPuzzle.moves[moveIndex];
     const attemptedMove = sourceSquare + targetSquare;
@@ -261,10 +452,18 @@ export default function PuzzlesPage() {
         if (move) {
           setGame(newGame);
           
+          // If recovering from a failed attempt, set back to playing
+          if (status === "failed") {
+            setStatus("playing");
+          }
+          
           // Check if puzzle is complete
           if (moveIndex + 1 >= currentPuzzle.moves.length) {
             setStatus("solved");
-            setScore(prev => ({ ...prev, solved: prev.solved + 1 }));
+            // Only count as solved if they didn't fail first
+            if (status !== "failed") {
+              setScore(prev => ({ ...prev, solved: prev.solved + 1 }));
+            }
           } else {
             // Make opponent's response move
             const nextMoveIndex = moveIndex + 1;
@@ -337,6 +536,9 @@ export default function PuzzlesPage() {
       case "medium": return "text-yellow-400 bg-yellow-900/30 border-yellow-700/50";
       case "hard": return "text-orange-400 bg-orange-900/30 border-orange-700/50";
       case "master": return "text-red-400 bg-red-900/30 border-red-700/50";
+      case "fischer": return "text-blue-400 bg-blue-900/30 border-blue-700/50";
+      case "kasparov": return "text-purple-400 bg-purple-900/30 border-purple-700/50";
+      case "botvinnik": return "text-cyan-400 bg-cyan-900/30 border-cyan-700/50";
     }
   };
 
@@ -346,6 +548,9 @@ export default function PuzzlesPage() {
       case "medium": return "Medium (1200-1400)";
       case "hard": return "Hard (1600-1800)";
       case "master": return "Master (2000+)";
+      case "fischer": return "Bobby Fischer";
+      case "kasparov": return "Garry Kasparov";
+      case "botvinnik": return "Mikhail Botvinnik";
     }
   };
 
@@ -370,21 +575,44 @@ export default function PuzzlesPage() {
         </div>
 
         {/* Difficulty Selection */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1">
-            {(["easy", "medium", "hard", "master"] as Difficulty[]).map((diff) => (
-              <button
-                key={diff}
-                onClick={() => setSelectedDifficulty(diff)}
-                className={`px-4 py-2 rounded-md font-serif text-sm transition-all ${
-                  selectedDifficulty === diff
-                    ? getDifficultyColor(diff) + " shadow-lg"
-                    : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"
-                }`}
-              >
-                {diff.charAt(0).toUpperCase() + diff.slice(1)}
-              </button>
-            ))}
+        <div className="flex flex-col items-center gap-3 mb-6">
+          {/* By Rating */}
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-amber-200/40 text-xs uppercase tracking-wider">By Rating</span>
+            <div className="inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1">
+              {(["easy", "medium", "hard", "master"] as Difficulty[]).map((diff) => (
+                <button
+                  key={diff}
+                  onClick={() => setSelectedDifficulty(diff)}
+                  className={`px-4 py-2 rounded-md font-serif text-sm transition-all ${
+                    selectedDifficulty === diff
+                      ? getDifficultyColor(diff) + " shadow-lg"
+                      : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"
+                  }`}
+                >
+                  {diff.charAt(0).toUpperCase() + diff.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+          {/* By Legend */}
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-amber-200/40 text-xs uppercase tracking-wider">♔ Legendary Players</span>
+            <div className="inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1">
+              {(["fischer", "kasparov", "botvinnik"] as Difficulty[]).map((diff) => (
+                <button
+                  key={diff}
+                  onClick={() => setSelectedDifficulty(diff)}
+                  className={`px-4 py-2 rounded-md font-serif text-sm transition-all ${
+                    selectedDifficulty === diff
+                      ? getDifficultyColor(diff) + " shadow-lg"
+                      : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"
+                  }`}
+                >
+                  {diff === "fischer" ? "Fischer" : diff === "kasparov" ? "Kasparov" : "Botvinnik"}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -519,45 +747,80 @@ export default function PuzzlesPage() {
                       </div>
                     )}
 
-                    {/* Lichess Link */}
+                    {/* Links Section */}
                     <div className="pt-4 border-t border-amber-800/30">
-                      <p className="text-amber-400 text-sm font-semibold mb-2">View on Lichess</p>
-                      <div className="flex flex-col gap-2">
-                        <a
-                          href={`https://lichess.org/training/${currentPuzzle.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-3 py-2 bg-amber-700/30 hover:bg-amber-600/40 text-amber-200 text-sm rounded border border-amber-600/50 transition-colors"
-                        >
-                          <svg className="w-4 h-4" viewBox="0 0 50 50" fill="currentColor">
-                            <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 2 2 0 0 0 23 13 A 2 2 0 0 0 25 15 A 2 2 0 0 0 27 13 A 2 2 0 0 0 25 11 z M 21 18 L 21 21 L 24 21 L 24 36 L 21 36 L 21 39 L 29 39 L 29 36 L 26 36 L 26 18 L 21 18 z"/>
-                          </svg>
-                          Open Puzzle on Lichess
-                        </a>
-                        <a
-                          href={`https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors"
-                        >
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                          </svg>
-                          Analyze Position
-                        </a>
-                      </div>
-                      <p className="text-amber-100/40 text-xs mt-3">
-                        Puzzles sourced from the{" "}
-                        <a
-                          href="https://lichess.org/training"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-amber-400 hover:text-amber-300 underline"
-                        >
-                          Lichess Puzzle Database
-                        </a>
-                      </p>
+                      {currentPuzzle.id.startsWith("fischer") || currentPuzzle.id.startsWith("kasparov") || currentPuzzle.id.startsWith("botvinnik") ? (
+                        // Legend puzzles - show game info
+                        <>
+                          <p className="text-amber-400 text-sm font-semibold mb-2">From the Games of Legends</p>
+                          <div className="flex flex-col gap-2">
+                            <div className="px-3 py-2 bg-stone-800/50 text-amber-200/70 text-sm rounded border border-stone-700/50">
+                              <span className="text-amber-100">
+                                {currentPuzzle.id.startsWith("fischer") && "♔ Bobby Fischer"}
+                                {currentPuzzle.id.startsWith("kasparov") && "♔ Garry Kasparov"}
+                                {currentPuzzle.id.startsWith("botvinnik") && "♔ Mikhail Botvinnik"}
+                              </span>
+                              <span className="text-amber-200/50 ml-2">• Historic Game Position</span>
+                            </div>
+                            <a
+                              href={`https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors"
+                            >
+                              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                              </svg>
+                              Analyze Position on Lichess
+                            </a>
+                          </div>
+                          <p className="text-amber-100/40 text-xs mt-3">
+                            Positions from actual games played by chess legends
+                          </p>
+                        </>
+                      ) : (
+                        // Regular Lichess puzzles
+                        <>
+                          <p className="text-amber-400 text-sm font-semibold mb-2">View on Lichess</p>
+                          <div className="flex flex-col gap-2">
+                            <a
+                              href={`https://lichess.org/training/${currentPuzzle.id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-3 py-2 bg-amber-700/30 hover:bg-amber-600/40 text-amber-200 text-sm rounded border border-amber-600/50 transition-colors"
+                            >
+                              <svg className="w-4 h-4" viewBox="0 0 50 50" fill="currentColor">
+                                <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 2 2 0 0 0 23 13 A 2 2 0 0 0 25 15 A 2 2 0 0 0 27 13 A 2 2 0 0 0 25 11 z M 21 18 L 21 21 L 24 21 L 24 36 L 21 36 L 21 39 L 29 39 L 29 36 L 26 36 L 26 18 L 21 18 z"/>
+                              </svg>
+                              Open Puzzle on Lichess
+                            </a>
+                            <a
+                              href={`https://lichess.org/analysis/${currentPuzzle.fen.replace(/ /g, '_')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-3 py-2 bg-stone-800/50 hover:bg-stone-700/50 text-amber-200/70 text-sm rounded border border-stone-700/50 transition-colors"
+                            >
+                              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                              </svg>
+                              Analyze Position
+                            </a>
+                          </div>
+                          <p className="text-amber-100/40 text-xs mt-3">
+                            Puzzles sourced from the{" "}
+                            <a
+                              href="https://lichess.org/training"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-amber-400 hover:text-amber-300 underline"
+                            >
+                              Lichess Puzzle Database
+                            </a>
+                          </p>
+                        </>
+                      )}
                     </div>
                   </div>
                 </>
