@@ -1,45 +1,294 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1a1410;
-  --foreground: #f5f0e6;
+  /* Elegant vintage palette */
+  --background: #0f0e0c;
+  --background-warm: #151311;
+  --surface: #1c1a17;
+  --surface-elevated: #242119;
+  --border: #2f2a24;
+  --border-subtle: #3d362d;
+  
+  /* Warm gold accents */
+  --gold: #d4a054;
+  --gold-light: #e8c078;
+  --gold-dark: #b8863c;
+  --gold-muted: rgba(212, 160, 84, 0.15);
+  
+  /* Cream & ivory text */
+  --text-primary: #f4efe6;
+  --text-secondary: #c9c2b5;
+  --text-muted: #8a8279;
+  --text-accent: #d4a054;
+  
+  /* Chess piece colors */
+  --white-piece: #f0e6d3;
+  --black-piece: #2a2520;
+  
+  /* Status */
+  --success: #7cb342;
+  --rank-gold: #ffd700;
+  --rank-silver: #c0c0c0;
+  --rank-bronze: #cd7f32;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-serif: var(--font-playfair);
-  --font-body: var(--font-crimson);
+  --color-foreground: var(--text-primary);
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "Crimson Text", "Georgia", serif;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body), Georgia, serif;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Retro paper texture effect */
-.paper-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* Vintage sepia overlay */
-.sepia-overlay {
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-left: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--border-subtle), var(--border));
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Classic border ornament */
+.ornament-border {
+  border: 1px solid var(--border);
   position: relative;
 }
 
-.sepia-overlay::after {
+.ornament-border::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(139, 90, 43, 0.1), rgba(139, 90, 43, 0.2));
+  inset: 3px;
+  border: 1px solid var(--border-subtle);
   pointer-events: none;
 }
 
-/* Classic border style */
-.vintage-border {
-  border: 2px solid #8b5a2b;
+/* Vintage card style */
+.vintage-card {
+  background: linear-gradient(145deg, var(--surface-elevated) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
   box-shadow: 
-    inset 0 0 20px rgba(139, 90, 43, 0.2),
-    0 4px 20px rgba(0, 0, 0, 0.3);
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
+
+.vintage-card:hover {
+  border-color: var(--gold-dark);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--gold-muted),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Gold accent underline */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Chess pattern background */
+.chess-pattern {
+  background-image: 
+    linear-gradient(45deg, var(--surface) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--surface) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--surface) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--surface) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  opacity: 0.3;
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+  color: var(--background);
+  font-family: var(--font-display);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--gold-light);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to bottom, var(--gold-light), var(--gold));
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 12px rgba(212, 160, 84, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-dark);
+  background: var(--gold-muted);
+}
+
+/* Table styles */
+.classic-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.classic-table thead {
+  background: var(--surface);
+}
+
+.classic-table th {
+  padding: 1rem;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--gold-dark);
+}
+
+.classic-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.classic-table tbody tr:hover {
+  background: var(--gold-muted);
+}
+
+/* Rank badges */
+.rank-1 { color: var(--rank-gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+.rank-2 { color: var(--rank-silver); }
+.rank-3 { color: var(--rank-bronze); }
+
+/* Tab styles */
+.tab-group {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab {
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--text-secondary);
+}
+
+.tab.active {
+  background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+  color: var(--background);
+  font-weight: 600;
+}
+
+/* Decorative divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Stat card */
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-card .value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.stat-card .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
