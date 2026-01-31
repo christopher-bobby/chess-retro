@@ -1,11 +1,18 @@
+"use client";
+
 import Link from "next/link";
-import { legends } from "./gameData";
+import { useState } from "react";
+import { centuries } from "./gameData";
 
 export default function ClassicGamesPage() {
+  const [activeTab, setActiveTab] = useState("19th");
+
+  const activeCentury = centuries.find((c) => c.id === activeTab)!;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-950 via-stone-900 to-stone-950 py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-amber-100 mb-4">
             Learn from the Legends
           </h1>
@@ -14,8 +21,36 @@ export default function ClassicGamesPage() {
           </p>
         </div>
 
+        {/* Century Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-stone-900/80 rounded-lg p-1 border border-amber-800/30">
+            {centuries.map((century) => (
+              <button
+                key={century.id}
+                onClick={() => setActiveTab(century.id)}
+                className={`px-6 py-3 rounded-md font-serif text-sm md:text-base transition-all ${
+                  activeTab === century.id
+                    ? "bg-amber-700 text-amber-100 shadow-lg"
+                    : "text-amber-300 hover:text-amber-100 hover:bg-amber-900/50"
+                }`}
+              >
+                {century.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Century Description */}
+        <div className="text-center mb-8 px-4">
+          <p className="text-amber-400 font-mono text-sm">{activeCentury.period}</p>
+          <p className="text-amber-200/70 mt-2 max-w-2xl mx-auto">
+            {activeCentury.description}
+          </p>
+        </div>
+
+        {/* Legends Grid */}
         <div className="grid gap-6 md:grid-cols-2">
-          {legends.map((legend) => (
+          {activeCentury.legends.map((legend) => (
             <Link
               key={legend.id}
               href={`/classic-games/${legend.id}`}

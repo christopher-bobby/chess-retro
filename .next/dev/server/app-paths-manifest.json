@@ -3,5 +3,7 @@
   "/classic-games/page": "app/classic-games/page.js",
   "/legends/page": "app/legends/page.js",
   "/page": "app/page.js",
-  "/puzzles/page": "app/puzzles/page.js"
+  "/play/page": "app/play/page.js",
+  "/puzzles/page": "app/puzzles/page.js",
+  "/rankings/page": "app/rankings/page.js"
 }

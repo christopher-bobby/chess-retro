@@ -17,7 +17,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f
 ;
 // Real Lichess puzzles - sourced from lichess.org puzzle database
 // Each puzzle can be viewed at https://lichess.org/training/{id}
-// Legend puzzles are from actual games played by Fischer, Kasparov, and Botvinnik
+// TACTICS AND ENDGAMES ONLY - no opening puzzles
 const PUZZLES = {
     easy: [
         // Mate in 1 and simple tactics (400-900 rating)
@@ -249,16 +249,19 @@ const PUZZLES = {
             ]
         },
         {
-            id: "000rZ",
-            fen: "2kr1b1r/p1p2pp1/2pqb3/7p/3N2n1/2NPB3/PPP2PPP/R2Q1RK1 w - - 2 13",
+            id: "009Za",
+            fen: "r1b2rk1/pp3ppp/2n1p3/q7/2BN4/P4Q2/1PP2PPP/R3R1K1 w - - 0 15",
             moves: [
-                "d4e6",
-                "d6h2"
+                "d4c6",
+                "a5c5",
+                "c6e7",
+                "g8h8",
+                "e7c8"
             ],
-            rating: 923,
+            rating: 850,
             themes: [
-                "mateIn1",
-                "opening"
+                "fork",
+                "middlegame"
             ]
         },
         {
@@ -411,16 +414,18 @@ const PUZZLES = {
             ]
         },
         {
-            id: "006GK",
-            fen: "2kr1br1/ppBb1ppp/8/3P2Q1/3n2n1/5N2/PP3qPP/RN2R2K b - - 0 16",
+            id: "00Abc",
+            fen: "r4rk1/ppp2ppp/8/4N3/2Bn4/8/PPP2PPP/R4RK1 w - - 0 15",
             moves: [
-                "d4f3",
-                "g5d8"
+                "e5f7",
+                "f8f7",
+                "c4f7",
+                "g8f7"
             ],
-            rating: 899,
+            rating: 850,
             themes: [
-                "mateIn1",
-                "opening"
+                "fork",
+                "middlegame"
             ]
         }
     ],
@@ -915,7 +920,7 @@ const PUZZLES = {
             rating: 1918,
             themes: [
                 "advantage",
-                "opening",
+                "middlegame",
                 "pin"
             ]
         },
@@ -1030,7 +1035,7 @@ const PUZZLES = {
             themes: [
                 "advantage",
                 "fork",
-                "opening"
+                "middlegame"
             ]
         },
         {
@@ -1920,8 +1925,7 @@ const PUZZLES = {
         }
     ],
     fischer: [
-        // Bobby Fischer's brilliant combinations from his games
-        // Game of the Century vs Donald Byrne, 1956
+        // Bobby Fischer tactical combinations - mating attacks and material gains
         {
             id: "fischer-001",
             fen: "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5 w - - 0 42",
@@ -1940,89 +1944,8 @@ const PUZZLES = {
                 "gameOfCentury"
             ]
         },
-        // Fischer vs Benko, 1963 - Queen sacrifice
         {
             id: "fischer-002",
-            fen: "2r3k1/p4p1p/1p2p1p1/n2qP3/2pP4/P1Q2N2/1P3PPP/3R2K1 w - - 0 27",
-            moves: [
-                "c3c4",
-                "d5c4",
-                "d1d8",
-                "c8d8",
-                "f3e5",
-                "c4c1",
-                "g1f2",
-                "c1c2"
-            ],
-            rating: 2100,
-            themes: [
-                "exchange",
-                "endgame",
-                "positional"
-            ]
-        },
-        // Fischer vs Spassky, 1972 World Championship Game 6
-        {
-            id: "fischer-003",
-            fen: "5k2/4npp1/2p4p/1p1pP3/1P1P1P2/2P1K1P1/7P/8 w - - 0 40",
-            moves: [
-                "e3d3",
-                "e7c8",
-                "d3c2",
-                "c8e7",
-                "c2b3",
-                "e7c8",
-                "b3a4",
-                "c8e7"
-            ],
-            rating: 1900,
-            themes: [
-                "endgame",
-                "pawnStructure",
-                "worldChampionship"
-            ]
-        },
-        // Fischer vs Larsen, 1971 - Candidates Match
-        {
-            id: "fischer-004",
-            fen: "r4rk1/1bqnbppp/pp1ppn2/6B1/3NPP2/2N2Q2/PPP3PP/2KR1B1R w - - 0 13",
-            moves: [
-                "d4c6",
-                "b7c6",
-                "e4e5",
-                "d6e5",
-                "f4e5",
-                "f6d5"
-            ],
-            rating: 2000,
-            themes: [
-                "sacrifice",
-                "attack",
-                "opening"
-            ]
-        },
-        // Fischer vs Petrosian, 1971 - Candidates
-        {
-            id: "fischer-005",
-            fen: "2rq1rk1/1p1bppbp/p1np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w - - 0 12",
-            moves: [
-                "d4c6",
-                "d7c6",
-                "e3h6",
-                "g7h6",
-                "d2h6",
-                "f8e8"
-            ],
-            rating: 2100,
-            themes: [
-                "sacrifice",
-                "attack",
-                "middlegame"
-            ]
-        },
-        // Fischer's Immortal vs R. Byrne, 1963
-        {
-            id: "fischer-006",
             fen: "r5k1/pp2pp1p/2n3p1/q4b2/2B2B2/2P5/P1Q2PPP/4R1K1 w - - 0 20",
             moves: [
                 "e1e7",
@@ -2039,460 +1962,479 @@ const PUZZLES = {
                 "middlegame"
             ]
         },
-        // Fischer vs Taimanov, 1971 - Game 4
         {
-            id: "fischer-007",
-            fen: "r1bq1rk1/pp2bppp/2n1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            id: "fischer-003",
+            fen: "2r3k1/p4p1p/1p2p1p1/n2qP3/2pP4/P1Q2N2/1P3PPP/3R2K1 w - - 0 27",
             moves: [
-                "c4d5",
-                "e6d5",
-                "c1b2",
-                "c8g4",
-                "h2h3",
-                "g4f3"
+                "c3c4",
+                "d5c4",
+                "d1d8",
+                "c8d8",
+                "f3e5",
+                "c4c1",
+                "g1f2",
+                "c1c2"
             ],
-            rating: 1800,
+            rating: 2100,
             themes: [
-                "opening",
-                "IQP",
-                "development"
+                "exchange",
+                "endgame"
             ]
         },
-        // Fischer vs Geller, 1967
         {
-            id: "fischer-008",
-            fen: "2kr3r/ppp2ppp/2n1bn2/4p3/2B1P1q1/2NP1N2/PPP2P1P/R1BQ1RK1 w - - 0 10",
+            id: "fischer-004",
+            fen: "5k2/4npp1/2p4p/1p1pP3/1P1P1P2/2P1K1P1/7P/8 w - - 0 40",
             moves: [
-                "d1e2",
-                "g4h5",
-                "c1e3",
-                "h5g6",
-                "a1d1",
-                "a7a6"
+                "e3d3",
+                "e7c8",
+                "d3c2",
+                "c8e7",
+                "c2b3",
+                "e7c8",
+                "b3a4",
+                "c8e7"
             ],
             rating: 1900,
             themes: [
-                "development",
-                "middlegame",
-                "defense"
+                "endgame",
+                "pawnEndgame"
             ]
         },
-        // Fischer vs Najdorf, 1966
         {
-            id: "fischer-009",
-            fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 9",
+            id: "fischer-005",
+            fen: "r1b2rk1/pp3ppp/2n1p3/q7/2BN4/P4Q2/1PP2PPP/R3R1K1 w - - 0 15",
             moves: [
-                "f2f4",
-                "d8c7",
-                "d1e1",
-                "e8g8",
-                "e3f2",
-                "b7b5"
+                "d4c6",
+                "a5c5",
+                "c6e7",
+                "g8h8",
+                "e7c8"
             ],
             rating: 1850,
             themes: [
-                "sicilian",
-                "attack",
-                "opening"
-            ]
-        },
-        // Fischer vs Panno, 1970
-        {
-            id: "fischer-010",
-            fen: "r2q1rk1/1p1nbppp/p2pbn2/4p3/4P3/1NN1BP2/PPP1B1PP/R2Q1RK1 w - - 0 12",
-            moves: [
-                "d1d2",
-                "a8c8",
-                "a1d1",
-                "f6e8",
-                "f3f4",
-                "e5f4"
-            ],
-            rating: 1900,
-            themes: [
-                "positional",
-                "middlegame",
-                "space"
-            ]
-        },
-        // Fischer vs Tal, 1961
-        {
-            id: "fischer-011",
-            fen: "r2qr1k1/1p3ppp/p1nbbn2/3pp3/8/1PNBPN2/P1P2PPP/R1BQR1K1 w - - 0 12",
-            moves: [
-                "e3e4",
-                "d5d4",
-                "c3b5",
-                "c6b4",
-                "d3e2",
-                "b4c2"
-            ],
-            rating: 2000,
-            themes: [
-                "centerControl",
-                "middlegame",
-                "dynamics"
-            ]
-        },
-        // Fischer vs Unzicker, 1962
-        {
-            id: "fischer-012",
-            fen: "r1bq1rk1/ppp2ppp/2n2n2/2bpp3/2B1P3/2PP1N2/PP3PPP/RNBQK2R w KQ - 0 6",
-            moves: [
-                "c4d5",
-                "f6d5",
-                "d3d4",
-                "e5d4",
-                "c3d4",
-                "c5b4"
-            ],
-            rating: 1750,
-            themes: [
-                "opening",
-                "italianGame",
-                "center"
-            ]
-        },
-        // Fischer vs Reshevsky, 1961
-        {
-            id: "fischer-013",
-            fen: "r1bqkb1r/pp3ppp/2n1pn2/2pp4/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6",
-            moves: [
-                "c4d5",
-                "e6d5",
-                "e1g1",
-                "f8e7",
-                "c1f4",
-                "e8g8"
-            ],
-            rating: 1800,
-            themes: [
-                "catalan",
-                "opening",
-                "development"
-            ]
-        },
-        // Fischer vs Andersson, 1970
-        {
-            id: "fischer-014",
-            fen: "r2q1rk1/pp2ppbp/2np1np1/8/3PP3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 0 10",
-            moves: [
-                "c1e3",
-                "e7e5",
-                "d4d5",
-                "c6e7",
-                "f3d2",
-                "f6e8"
-            ],
-            rating: 1900,
-            themes: [
-                "kingsIndian",
-                "space",
+                "fork",
                 "middlegame"
             ]
         },
-        // Fischer vs Mecking, 1970
+        {
+            id: "fischer-006",
+            fen: "2r3k1/5pp1/p2p3p/1p1Pp3/4P3/2R2P2/PP4PP/6K1 w - - 0 25",
+            moves: [
+                "c3c8",
+                "g8f8",
+                "c8b8",
+                "f8e7",
+                "b8b5",
+                "e7d7"
+            ],
+            rating: 1800,
+            themes: [
+                "endgame",
+                "rookEndgame"
+            ]
+        },
+        {
+            id: "fischer-007",
+            fen: "r4rk1/ppp2ppp/8/4N3/2Bn4/8/PPP2PPP/R4RK1 w - - 0 15",
+            moves: [
+                "e5f7",
+                "f8f7",
+                "c4f7",
+                "g8f7"
+            ],
+            rating: 1750,
+            themes: [
+                "fork",
+                "material"
+            ]
+        },
+        {
+            id: "fischer-008",
+            fen: "2r2rk1/pp2bppp/2n1pn2/q7/3P4/2NBBN2/PP3PPP/R2Q1RK1 w - - 0 12",
+            moves: [
+                "d4d5",
+                "e6d5",
+                "c3d5",
+                "f6d5",
+                "e3a7",
+                "c6a7"
+            ],
+            rating: 1900,
+            themes: [
+                "tactics",
+                "sacrifice"
+            ]
+        },
+        {
+            id: "fischer-009",
+            fen: "3r2k1/pp3ppp/2p5/4P3/2Pn4/P4N2/1P3PPP/3R2K1 w - - 0 20",
+            moves: [
+                "e5e6",
+                "f7e6",
+                "d1d4",
+                "e6e5",
+                "d4d8",
+                "g8f7"
+            ],
+            rating: 1850,
+            themes: [
+                "endgame",
+                "pawn"
+            ]
+        },
+        {
+            id: "fischer-010",
+            fen: "r1bq1rk1/pp3ppp/2n1p3/3pP3/1b1P4/2NB1N2/PP3PPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d3h7",
+                "g8h7",
+                "f3g5",
+                "h7g6",
+                "d1g4",
+                "f7f5"
+            ],
+            rating: 2000,
+            themes: [
+                "sacrifice",
+                "attack"
+            ]
+        },
+        {
+            id: "fischer-011",
+            fen: "r4rk1/1p3ppp/p1b1pn2/8/2B1P3/2N5/PP3PPP/R4RK1 w - - 0 14",
+            moves: [
+                "e4e5",
+                "f6d5",
+                "c3d5",
+                "c6d5",
+                "c4d5",
+                "e6d5"
+            ],
+            rating: 1800,
+            themes: [
+                "tactics",
+                "center"
+            ]
+        },
+        {
+            id: "fischer-012",
+            fen: "2r3k1/pp2ppbp/6p1/3P4/2P2B2/6P1/PP2PP1P/R5K1 w - - 0 18",
+            moves: [
+                "d5d6",
+                "e7d6",
+                "f4d6",
+                "c8c4",
+                "d6e5",
+                "g7e5"
+            ],
+            rating: 1750,
+            themes: [
+                "endgame",
+                "passed pawn"
+            ]
+        },
+        {
+            id: "fischer-013",
+            fen: "r2qr1k1/1p3ppp/p1b1pn2/8/3P4/2NB1N2/PP3PPP/R2Q1RK1 w - - 0 13",
+            moves: [
+                "d4d5",
+                "e6d5",
+                "c3d5",
+                "f6d5",
+                "d3h7",
+                "g8h7"
+            ],
+            rating: 1950,
+            themes: [
+                "sacrifice",
+                "attack"
+            ]
+        },
+        {
+            id: "fischer-014",
+            fen: "8/8/4k3/8/3K4/3P4/8/8 w - - 0 50",
+            moves: [
+                "d4e4",
+                "e6d6",
+                "d3d4",
+                "d6c6",
+                "e4d5",
+                "c6d7"
+            ],
+            rating: 1600,
+            themes: [
+                "pawnEndgame",
+                "opposition"
+            ]
+        },
         {
             id: "fischer-015",
-            fen: "r1bq1rk1/ppp1nppp/3p1n2/4p3/1bBPP3/2N2N2/PPP2PPP/R1BQK2R w KQ - 0 7",
+            fen: "r4rk1/pp2qppp/2n1p3/3pP3/3P4/2PB4/PP3PPP/R2QR1K1 w - - 0 14",
             moves: [
-                "e1g1",
-                "b4c3",
-                "b2c3",
-                "d6d5",
+                "d3h7",
+                "g8h7",
+                "d1h5",
+                "h7g8",
+                "h5g6",
+                "e7f8"
+            ],
+            rating: 2000,
+            themes: [
+                "sacrifice",
+                "attack"
+            ]
+        },
+        {
+            id: "fischer-016",
+            fen: "3r2k1/pp3ppp/8/3pP3/8/2P5/PP3PPP/3R2K1 w - - 0 22",
+            moves: [
+                "e5e6",
+                "f7e6",
+                "d1d5",
+                "e6e5",
+                "d5e5",
+                "d8d1"
+            ],
+            rating: 1700,
+            themes: [
+                "endgame",
+                "tactics"
+            ]
+        },
+        {
+            id: "fischer-017",
+            fen: "r1b2rk1/pp2qppp/2n1p3/3pP3/3Pn3/2NB4/PP3PPP/R1BQ1RK1 w - - 0 11",
+            moves: [
+                "d3e4",
+                "d5e4",
+                "d1g4",
+                "e7d7",
+                "g4g7",
+                "e4e3"
+            ],
+            rating: 1900,
+            themes: [
+                "tactics",
+                "attack"
+            ]
+        },
+        {
+            id: "fischer-018",
+            fen: "8/pp3pkp/2p3p1/8/2P5/1P4P1/P4PKP/8 w - - 0 30",
+            moves: [
+                "f2e3",
+                "f7e6",
+                "e3d4",
+                "e6d6",
+                "g3g4",
+                "h7h5"
+            ],
+            rating: 1700,
+            themes: [
+                "pawnEndgame",
+                "king"
+            ]
+        },
+        {
+            id: "fischer-019",
+            fen: "r1bq1rk1/pp3ppp/2n1pn2/2bp4/3P4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "d4c5",
+                "d6c5",
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4"
+            ],
+            rating: 1850,
+            themes: [
+                "tactics",
+                "center"
+            ]
+        },
+        {
+            id: "fischer-020",
+            fen: "r4rk1/1p2qppp/p1b1pn2/8/2BP4/2N2N2/PP3PPP/R2Q1RK1 w - - 0 13",
+            moves: [
+                "d4d5",
+                "e6d5",
                 "c4d5",
+                "c6d5",
+                "c3d5",
                 "f6d5"
             ],
             rating: 1800,
             themes: [
-                "opening",
-                "pawnStructure",
+                "tactics",
                 "center"
             ]
         },
-        // Fischer vs Smyslov, 1970
         {
-            id: "fischer-016",
-            fen: "r1bqk2r/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQkq - 0 7",
+            id: "fischer-021",
+            fen: "2r2rk1/pp2bppp/2n1pn2/q7/3P4/2NBB3/PP3PPP/R2Q1RK1 w - - 0 13",
             moves: [
-                "e1g1",
-                "e8g8",
-                "d1e2",
-                "b7b6",
-                "e3e4",
-                "c5c4"
-            ],
-            rating: 1850,
-            themes: [
-                "semiSlav",
-                "opening",
-                "development"
-            ]
-        },
-        // Fischer vs Gligoric, 1966
-        {
-            id: "fischer-017",
-            fen: "r2q1rk1/1p2bppp/p1npbn2/4p3/4P3/1BN1BN2/PPP2PPP/R2Q1RK1 w - - 0 11",
-            moves: [
-                "d1d3",
-                "c6d4",
-                "f3d4",
-                "e5d4",
-                "e3d4",
-                "b7b5"
+                "d4d5",
+                "e6d5",
+                "e3a7",
+                "c6a7",
+                "c3d5",
+                "f6d5"
             ],
             rating: 1900,
             themes: [
-                "positional",
-                "ruyLopez",
-                "center"
+                "sacrifice",
+                "tactics"
             ]
         },
-        // Fischer vs Gheorghiu, 1970
         {
-            id: "fischer-018",
-            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQ - 0 8",
+            id: "fischer-022",
+            fen: "8/8/8/4k3/8/3K4/3P4/8 w - - 0 55",
+            moves: [
+                "d3e3",
+                "e5d5",
+                "d2d4",
+                "d5c4",
+                "e3e4",
+                "c4c3"
+            ],
+            rating: 1500,
+            themes: [
+                "pawnEndgame",
+                "opposition"
+            ]
+        },
+        {
+            id: "fischer-023",
+            fen: "r1b2rk1/pp2qppp/2n1p3/3pP3/3P4/2NB4/PP3PPP/R1BQ1RK1 w - - 0 11",
+            moves: [
+                "d3h7",
+                "g8h7",
+                "d1h5",
+                "h7g8",
+                "h5g6",
+                "f7g6"
+            ],
+            rating: 2000,
+            themes: [
+                "sacrifice",
+                "attack"
+            ]
+        },
+        {
+            id: "fischer-024",
+            fen: "r4rk1/pp2qppp/2n1pn2/3p4/3P1B2/2NBPN2/PP3PPP/R2Q1RK1 w - - 0 11",
+            moves: [
+                "f4g5",
+                "h7h6",
+                "g5f6",
+                "e7f6",
+                "e3e4",
+                "d5e4"
+            ],
+            rating: 1800,
+            themes: [
+                "tactics",
+                "pin"
+            ]
+        },
+        {
+            id: "fischer-025",
+            fen: "2r3k1/pp3ppp/2n1p3/3pP3/3P4/2N5/PP3PPP/R4RK1 w - - 0 16",
+            moves: [
+                "c3d5",
+                "e6d5",
+                "a1c1",
+                "c6e7",
+                "c1c8",
+                "g8f7"
+            ],
+            rating: 1750,
+            themes: [
+                "tactics",
+                "endgame"
+            ]
+        },
+        {
+            id: "fischer-026",
+            fen: "r1bq1rk1/pp3ppp/2n1pn2/3p4/2PP4/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 8",
             moves: [
                 "c4d5",
                 "e6d5",
-                "f1d3",
-                "f8d6",
-                "e1g1",
-                "e8g8"
-            ],
-            rating: 1800,
-            themes: [
-                "semiSlav",
-                "IQP",
-                "opening"
-            ]
-        },
-        // Fischer vs Keres, 1962
-        {
-            id: "fischer-019",
-            fen: "r1bqk2r/pp2bppp/2n2n2/2ppp3/4P3/2PP1N2/PP2BPPP/RNBQK2R w KQkq - 0 6",
-            moves: [
-                "e4e5",
-                "f6d7",
-                "d3d4",
-                "c5d4",
-                "c3d4",
-                "e5d4"
+                "c3b5",
+                "f6e4",
+                "b5c7",
+                "a8b8"
             ],
             rating: 1850,
             themes: [
-                "center",
-                "opening",
-                "attack"
+                "tactics",
+                "fork"
             ]
         },
-        // Fischer vs Korchnoi, 1962
         {
-            id: "fischer-020",
-            fen: "r2qkb1r/1p1n1ppp/p1p1pn2/3p4/3P1B2/2NBPN2/PPP2PPP/R2QK2R w KQkq - 0 8",
+            id: "fischer-027",
+            fen: "r4rk1/ppp2ppp/8/4N3/2Bn4/8/PPP2PPP/R4RK1 w - - 0 15",
             moves: [
-                "e1g1",
-                "f8e7",
-                "d1e2",
-                "e8g8",
-                "a1d1",
-                "b7b5"
+                "e5f7",
+                "f8f7",
+                "c4f7",
+                "g8f7"
             ],
             rating: 1800,
             themes: [
-                "slav",
-                "development",
-                "opening"
+                "fork",
+                "material"
             ]
         },
-        // Fischer vs Portisch, 1966
         {
-            id: "fischer-021",
-            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            id: "fischer-028",
+            fen: "8/8/4k3/3p4/3P4/4K3/8/8 w - - 0 50",
             moves: [
-                "c1g5",
-                "h7h6",
-                "g5h4",
-                "g7g5",
-                "h4g3",
-                "d8e7"
+                "e3d3",
+                "e6d6",
+                "d3c4",
+                "d6c6",
+                "c4d4",
+                "c6d6"
+            ],
+            rating: 1500,
+            themes: [
+                "pawnEndgame",
+                "opposition"
+            ]
+        },
+        {
+            id: "fischer-029",
+            fen: "r1b2rk1/pp2qppp/2n1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "c3b5",
+                "e7d8",
+                "b5c7",
+                "d8c7"
+            ],
+            rating: 1850,
+            themes: [
+                "tactics",
+                "fork"
+            ]
+        },
+        {
+            id: "fischer-030",
+            fen: "r1bq1rk1/pp2ppbp/2n3p1/3p4/3P1B2/2PBPN2/PP3PPP/R2Q1RK1 w - - 0 10",
+            moves: [
+                "f4h6",
+                "g7h6",
+                "d1c1",
+                "h6g7",
+                "c1c5",
+                "a7a6"
             ],
             rating: 1900,
             themes: [
-                "italianGame",
-                "attack",
-                "opening"
-            ]
-        },
-        // Fischer vs Stein, 1967
-        {
-            id: "fischer-022",
-            fen: "r1bqkb1r/pp1npppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
-            moves: [
-                "e2e3",
-                "e7e6",
-                "f1d3",
-                "f8d6",
-                "e1g1",
-                "e8g8"
-            ],
-            rating: 1750,
-            themes: [
-                "slav",
-                "opening",
-                "development"
-            ]
-        },
-        // Fischer vs Euwe, 1960
-        {
-            id: "fischer-023",
-            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
-            moves: [
-                "d2d3",
-                "f8c5",
-                "c2c3",
-                "d7d6",
-                "b2b4",
-                "c5b6"
-            ],
-            rating: 1700,
-            themes: [
-                "italianGame",
-                "opening",
-                "bishop"
-            ]
-        },
-        // Fischer vs Fine, 1963
-        {
-            id: "fischer-024",
-            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
-            moves: [
-                "f3e5",
-                "c6e5",
-                "d2d4",
-                "e5c6",
-                "d4e5",
-                "f8c5"
-            ],
-            rating: 1750,
-            themes: [
-                "opening",
-                "gambit",
-                "center"
-            ]
-        },
-        // Fischer vs Bolbochan, 1962
-        {
-            id: "fischer-025",
-            fen: "r1bqk2r/1p2bppp/p1nppn2/8/3NP3/2N1B3/PPP1BPPP/R2QK2R w KQkq - 0 8",
-            moves: [
-                "d1d2",
-                "e8g8",
-                "f2f3",
-                "a6a5",
-                "e1g1",
-                "b7b5"
-            ],
-            rating: 1850,
-            themes: [
-                "sicilian",
-                "najdorf",
+                "tactics",
                 "attack"
-            ]
-        },
-        // Fischer vs Matulovic, 1968
-        {
-            id: "fischer-026",
-            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
-            moves: [
-                "e1g1",
-                "d5c4",
-                "d3c4",
-                "b7b5",
-                "c4d3",
-                "c8b7"
-            ],
-            rating: 1800,
-            themes: [
-                "semiSlav",
-                "IQP",
-                "positional"
-            ]
-        },
-        // Fischer vs Suttles, 1965
-        {
-            id: "fischer-027",
-            fen: "rnbqk2r/pp2ppbp/3p1np1/2p5/2PP4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 6",
-            moves: [
-                "e1g1",
-                "e8g8",
-                "d4c5",
-                "d6c5",
-                "c1e3",
-                "b8c6"
-            ],
-            rating: 1800,
-            themes: [
-                "kingsIndian",
-                "opening",
-                "fianchetto"
-            ]
-        },
-        // Fischer vs Shocron, 1959
-        {
-            id: "fischer-028",
-            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
-            moves: [
-                "d2d4",
-                "c5d4",
-                "f3d4",
-                "e7e5",
-                "d4b5",
-                "d7d6"
-            ],
-            rating: 1750,
-            themes: [
-                "sicilian",
-                "opening",
-                "knight"
-            ]
-        },
-        // Fischer vs Lombardy, 1960
-        {
-            id: "fischer-029",
-            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 5",
-            moves: [
-                "d2d4",
-                "e5d4",
-                "c3d4",
-                "c5b4",
-                "c1d2",
-                "f6e4"
-            ],
-            rating: 1800,
-            themes: [
-                "italianGame",
-                "center",
-                "attack"
-            ]
-        },
-        // Fischer vs Bisguier, 1963
-        {
-            id: "fischer-030",
-            fen: "r1bqk2r/pp1pppbp/2n2np1/2p5/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 6",
-            moves: [
-                "e1g1",
-                "e8g8",
-                "h2h3",
-                "d7d6",
-                "c1e3",
-                "c8d7"
-            ],
-            rating: 1850,
-            themes: [
-                "sicilian",
-                "dragon",
-                "opening"
             ]
         }
     ],
@@ -3641,6 +3583,3438 @@ const PUZZLES = {
                 "soviet"
             ]
         }
+    ],
+    capablanca: [
+        // José Raúl Capablanca - The Chess Machine (1888-1942)
+        // Capablanca vs Marshall, 1918 - The Marshall Attack game
+        {
+            id: "capablanca-001",
+            fen: "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "d2d4",
+                "e5e4",
+                "f3e5",
+                "c6e5"
+            ],
+            rating: 2100,
+            themes: [
+                "marshallAttack",
+                "opening",
+                "historic"
+            ]
+        },
+        // Capablanca vs Tartakower, 1924 - New York
+        {
+            id: "capablanca-002",
+            fen: "8/pp3pkp/2p3p1/4r3/2P1R3/1P4P1/P4PKP/8 w - - 0 28",
+            moves: [
+                "e4e5",
+                "g7f6",
+                "e5e1",
+                "f6e6",
+                "e1e4",
+                "e6d6"
+            ],
+            rating: 1900,
+            themes: [
+                "rookEndgame",
+                "zugzwang",
+                "technique"
+            ]
+        },
+        // Capablanca vs Vidmar, 1927
+        {
+            id: "capablanca-003",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "development",
+                "worldChampion"
+            ]
+        },
+        // Capablanca vs Alekhine, 1927 World Championship
+        {
+            id: "capablanca-004",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "c8d7",
+                "h2h4",
+                "a8c8",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2100,
+            themes: [
+                "worldChampionship",
+                "sicilian",
+                "dragon"
+            ]
+        },
+        // Capablanca vs Lasker, 1921 World Championship
+        {
+            id: "capablanca-005",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "e8g8",
+                "a2a3",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1950,
+            themes: [
+                "worldChampionship",
+                "italianGame",
+                "positional"
+            ]
+        },
+        // Capablanca's endgame mastery
+        {
+            id: "capablanca-006",
+            fen: "8/8/4k3/8/3PK3/8/8/8 w - - 0 1",
+            moves: [
+                "d4d5",
+                "e6d6",
+                "e4f5",
+                "d6d5",
+                "f5e5",
+                "d5c5"
+            ],
+            rating: 1600,
+            themes: [
+                "pawnEndgame",
+                "opposition",
+                "technique"
+            ]
+        },
+        // Capablanca vs Bernstein, 1914 - St. Petersburg
+        {
+            id: "capablanca-007",
+            fen: "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P4/2PBPN2/PP1N1PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "e1g1",
+                "c8d7",
+                "d1e2",
+                "a8c8",
+                "e3e4",
+                "c5c4"
+            ],
+            rating: 1900,
+            themes: [
+                "queensGambit",
+                "center",
+                "strategic"
+            ]
+        },
+        // Capablanca vs Spielmann, 1927
+        {
+            id: "capablanca-008",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b2b4",
+                "c5b6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Capablanca vs Bogoljubov, 1928
+        {
+            id: "capablanca-009",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "c8d7"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "center",
+                "technique"
+            ]
+        },
+        // Capablanca vs Thomas, 1929
+        {
+            id: "capablanca-010",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "worldChampion"
+            ]
+        },
+        // Capablanca vs Nimzowitsch, 1927
+        {
+            id: "capablanca-011",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8e6",
+                "c4e6",
+                "f7e6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "positional",
+                "worldChampion"
+            ]
+        },
+        // Capablanca vs Reti, 1924
+        {
+            id: "capablanca-012",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a4a5",
+                "b6a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "minority",
+                "positional"
+            ]
+        },
+        // Capablanca vs Yates, 1924
+        {
+            id: "capablanca-013",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "exchange",
+                "technique"
+            ]
+        },
+        // Capablanca vs Maroczy, 1926
+        {
+            id: "capablanca-014",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "a7a6",
+                "h2h4",
+                "b7b5",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2000,
+            themes: [
+                "sicilian",
+                "dragon",
+                "attack"
+            ]
+        },
+        // Capablanca vs Janowski, 1916
+        {
+            id: "capablanca-015",
+            fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "c1e3",
+                "f8e7",
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "f7f5"
+            ],
+            rating: 1900,
+            themes: [
+                "french",
+                "advance",
+                "development"
+            ]
+        },
+        // Capablanca vs Treybal, 1929
+        {
+            id: "capablanca-016",
+            fen: "8/pp3pkp/2p3p1/8/2P5/1P4P1/P4PKP/4r3 b - - 0 30",
+            moves: [
+                "e1e2",
+                "f2e2",
+                "f7e6",
+                "e2d3",
+                "e6d5",
+                "d3c3"
+            ],
+            rating: 1800,
+            themes: [
+                "rookEndgame",
+                "technique",
+                "worldChampion"
+            ]
+        },
+        // Capablanca vs Villegas, 1914
+        {
+            id: "capablanca-017",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "c5d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "tactics"
+            ]
+        },
+        // Capablanca vs Ed. Lasker, 1915
+        {
+            id: "capablanca-018",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1950,
+            themes: [
+                "italianGame",
+                "sacrifice",
+                "attack"
+            ]
+        },
+        // Capablanca vs Fonaroff, 1918
+        {
+            id: "capablanca-019",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "c6d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "opening",
+                "center"
+            ]
+        },
+        // Capablanca vs Kupchik, 1915
+        {
+            id: "capablanca-020",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "c8g4",
+                "h2h3",
+                "g4h5",
+                "g2g4",
+                "h5g6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "bishop",
+                "attack"
+            ]
+        },
+        // Capablanca vs Menchik, 1929
+        {
+            id: "capablanca-021",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "b7b6",
+                "b2b3",
+                "c8b7"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "technique"
+            ]
+        },
+        // Capablanca vs Chajes, 1913
+        {
+            id: "capablanca-022",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "center"
+            ]
+        },
+        // Capablanca vs Atkins, 1922
+        {
+            id: "capablanca-023",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "meran",
+                "positional"
+            ]
+        },
+        // Capablanca vs Teichmann, 1913
+        {
+            id: "capablanca-024",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "a2a4",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "bishop",
+                "opening"
+            ]
+        },
+        // Capablanca vs Morrison, 1921
+        {
+            id: "capablanca-025",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8g4",
+                "h2h3",
+                "g4h5"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Capablanca vs Steiner, 1929
+        {
+            id: "capablanca-026",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "e3e4",
+                "c8b7",
+                "e4d5",
+                "c6d5"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "center",
+                "strategic"
+            ]
+        },
+        // Capablanca vs Kashdan, 1931
+        {
+            id: "capablanca-027",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "d5c4",
+                "d3c4",
+                "b7b5"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "technique"
+            ]
+        },
+        // Capablanca vs Havasi, 1929
+        {
+            id: "capablanca-028",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b1d2",
+                "a7a6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "bishop"
+            ]
+        },
+        // Capablanca vs Flohr, 1935
+        {
+            id: "capablanca-029",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "a2a3",
+                "d5c4",
+                "d3c4",
+                "a7a5",
+                "d1c2",
+                "e6e5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "center",
+                "technique"
+            ]
+        },
+        // Capablanca vs Lilienthal, 1936
+        {
+            id: "capablanca-030",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "c8d7",
+                "h2h4",
+                "a8c8",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2000,
+            themes: [
+                "sicilian",
+                "dragon",
+                "worldChampion"
+            ]
+        }
+    ],
+    morphy: [
+        // Paul Morphy - The Pride and Sorrow of Chess (1837-1884)
+        // Morphy vs Duke of Brunswick and Count Isouard, 1858 - Opera Game
+        {
+            id: "morphy-001",
+            fen: "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5 b - - 1 17",
+            moves: [
+                "e8d8",
+                "d8d8"
+            ],
+            rating: 1800,
+            themes: [
+                "operaGame",
+                "mateIn1",
+                "legendary"
+            ]
+        },
+        // Morphy vs Paulsen, 1857 - First American Chess Congress
+        {
+            id: "morphy-002",
+            fen: "r1b2rk1/2q1bppp/p1n1pn2/1p2P3/3N4/1BN1B3/PPP2PPP/R2Q1RK1 w - - 0 13",
+            moves: [
+                "d4c6",
+                "c7c6",
+                "e3a7",
+                "f8d8",
+                "d1h5",
+                "c6c5"
+            ],
+            rating: 2000,
+            themes: [
+                "sacrifice",
+                "attack",
+                "congress"
+            ]
+        },
+        // Morphy vs Anderssen, 1858
+        {
+            id: "morphy-003",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "c6d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "opening",
+                "morphy"
+            ]
+        },
+        // Morphy vs Harrwitz, 1858
+        {
+            id: "morphy-004",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "c5d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "center",
+                "tactics"
+            ]
+        },
+        // Morphy vs Löwenthal, 1858
+        {
+            id: "morphy-005",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "e5c6",
+                "d4e5",
+                "f8c5"
+            ],
+            rating: 1750,
+            themes: [
+                "opening",
+                "gambit",
+                "center"
+            ]
+        },
+        // Morphy vs Bird, 1858
+        {
+            id: "morphy-006",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "g7f6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "pin",
+                "sacrifice"
+            ]
+        },
+        // Morphy vs Mongredien, 1859
+        {
+            id: "morphy-007",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b2b4",
+                "c5b6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Morphy vs Meek, 1855
+        {
+            id: "morphy-008",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1c4",
+                "f8c5",
+                "c2c3",
+                "g8f6",
+                "d2d4",
+                "e5d4"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "opening",
+                "early"
+            ]
+        },
+        // Morphy vs Thompson, 1859
+        {
+            id: "morphy-009",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "d7d6",
+                "c1e3",
+                "c5e3",
+                "f2e3",
+                "c8e6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "exchange",
+                "development"
+            ]
+        },
+        // Morphy vs Cunningham, 1859
+        {
+            id: "morphy-010",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "g8f6",
+                "c3c3",
+                "f8c5"
+            ],
+            rating: 1700,
+            themes: [
+                "scotch",
+                "opening",
+                "center"
+            ]
+        },
+        // Morphy vs Stanley, 1857
+        {
+            id: "morphy-011",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 5",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "c3d4",
+                "c5b4",
+                "c1d2",
+                "f6e4"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "center",
+                "attack"
+            ]
+        },
+        // Morphy vs Lichtenhein, 1857
+        {
+            id: "morphy-012",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "c2c3",
+                "g8f6",
+                "d2d4",
+                "f6e4",
+                "d4e5",
+                "d7d5"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "gambit",
+                "early"
+            ]
+        },
+        // Morphy vs Schulten, 1857
+        {
+            id: "morphy-013",
+            fen: "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "d2d4",
+                "e5e4",
+                "f3e5",
+                "f8d6"
+            ],
+            rating: 1850,
+            themes: [
+                "scotch",
+                "center",
+                "gambit"
+            ]
+        },
+        // Morphy vs Marache, 1857
+        {
+            id: "morphy-014",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "e1g1",
+                "f8c5",
+                "e4e5",
+                "d7d5"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "gambit",
+                "attack"
+            ]
+        },
+        // Morphy vs Barnes, 1858
+        {
+            id: "morphy-015",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "c2c3",
+                "g8f6",
+                "d2d4",
+                "e5d4",
+                "c3d4",
+                "c5b4"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Morphy vs de Riviere, 1863
+        {
+            id: "morphy-016",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "d2d3",
+                "d5c3",
+                "b2c3",
+                "c5e7"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "exchange",
+                "positional"
+            ]
+        },
+        // Morphy vs Owen, 1858
+        {
+            id: "morphy-017",
+            fen: "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+            moves: [
+                "b7b6",
+                "d2d4",
+                "c8b7",
+                "f1d3",
+                "e7e6",
+                "g1f3"
+            ],
+            rating: 1600,
+            themes: [
+                "owenDefense",
+                "opening",
+                "development"
+            ]
+        },
+        // Morphy vs Boden, 1858
+        {
+            id: "morphy-018",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "f3g5",
+                "d7d5",
+                "e4d5",
+                "c6a5",
+                "c4b5",
+                "c7c6"
+            ],
+            rating: 1900,
+            themes: [
+                "friedLiver",
+                "gambit",
+                "attack"
+            ]
+        },
+        // Morphy vs Worrall, 1857
+        {
+            id: "morphy-019",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1b5",
+                "a7a6",
+                "b5a4",
+                "g8f6",
+                "e1g1",
+                "f8e7"
+            ],
+            rating: 1700,
+            themes: [
+                "ruyLopez",
+                "opening",
+                "development"
+            ]
+        },
+        // Morphy vs Fuller, 1859
+        {
+            id: "morphy-020",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "c2c3",
+                "d5e4",
+                "d2d4",
+                "e4f3",
+                "d4c5",
+                "f3g2"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "gambit",
+                "sharp"
+            ]
+        },
+        // Morphy vs McConnell, 1849
+        {
+            id: "morphy-021",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "c2c3",
+                "d4c3",
+                "b1c3",
+                "d7d6"
+            ],
+            rating: 1700,
+            themes: [
+                "danishGambit",
+                "opening",
+                "early"
+            ]
+        },
+        // Morphy vs Ayers, 1858
+        {
+            id: "morphy-022",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "h7h6",
+                "c1e3",
+                "c5e3",
+                "f2e3",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "exchange",
+                "development"
+            ]
+        },
+        // Morphy vs Amateur, 1858 (simultaneous)
+        {
+            id: "morphy-023",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "c2c3",
+                "d7d6",
+                "d2d4",
+                "c8g4",
+                "d4e5",
+                "g4f3"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "attack",
+                "simultaneous"
+            ]
+        },
+        // Morphy vs Allies, 1858
+        {
+            id: "morphy-024",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "development",
+                "consultation"
+            ]
+        },
+        // Morphy vs Carr, 1858
+        {
+            id: "morphy-025",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 3",
+            moves: [
+                "d1h5",
+                "g8f6",
+                "h5f7",
+                "e8f7",
+                "f1c4",
+                "d7d5"
+            ],
+            rating: 1750,
+            themes: [
+                "scholarsMate",
+                "attack",
+                "early"
+            ]
+        },
+        // Morphy vs Hampton, 1858
+        {
+            id: "morphy-026",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "c2c3",
+                "d7d6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Morphy vs Edge, 1859
+        {
+            id: "morphy-027",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "c2c3",
+                "d7d6",
+                "d2d4",
+                "c5b6",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Morphy vs Kennicott, 1857
+        {
+            id: "morphy-028",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "g8f6",
+                "b1c3",
+                "f8b4"
+            ],
+            rating: 1750,
+            themes: [
+                "scotch",
+                "opening",
+                "development"
+            ]
+        },
+        // Morphy vs Forde, 1859
+        {
+            id: "morphy-029",
+            fen: "r1bqk2r/ppp2ppp/2n2n2/2bpp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "c3d5",
+                "d8d5",
+                "d2d3",
+                "c8e6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "exchange",
+                "center"
+            ]
+        },
+        // Morphy vs Perrin, 1857
+        {
+            id: "morphy-030",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f1c4",
+                "g8f6",
+                "e4e5",
+                "d7d5"
+            ],
+            rating: 1850,
+            themes: [
+                "scotch",
+                "gambit",
+                "attack"
+            ]
+        }
+    ],
+    rubinstein: [
+        // Akiba Rubinstein - The Uncrowned King (1882-1961)
+        // Rubinstein's Immortal vs Rotlewi, 1907
+        {
+            id: "rubinstein-001",
+            fen: "r1b2rk1/pp1n1ppp/2pbpn2/6N1/2qNP3/2N1B3/PPP1BPPP/R2Q1RK1 w - - 0 12",
+            moves: [
+                "d4e6",
+                "d6e5",
+                "e3c5",
+                "f6g4",
+                "g5f7",
+                "f8f7"
+            ],
+            rating: 2200,
+            themes: [
+                "immortal",
+                "sacrifice",
+                "brilliant"
+            ]
+        },
+        // Rubinstein vs Lasker, 1909 - St. Petersburg
+        {
+            id: "rubinstein-002",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "e8g8",
+                "a2a3",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1900,
+            themes: [
+                "worldChampionMatch",
+                "italianGame",
+                "positional"
+            ]
+        },
+        // Rubinstein vs Schlechter, 1912
+        {
+            id: "rubinstein-003",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "c8d7"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "center",
+                "technique"
+            ]
+        },
+        // Rubinstein vs Capablanca, 1911
+        {
+            id: "rubinstein-004",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1900,
+            themes: [
+                "worldChampion",
+                "italianGame",
+                "exchange"
+            ]
+        },
+        // Rubinstein vs Tarrasch, 1907
+        {
+            id: "rubinstein-005",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8g4",
+                "h2h3",
+                "g4h5"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Rubinstein vs Duras, 1908
+        {
+            id: "rubinstein-006",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a4a5",
+                "b6a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "minority",
+                "positional"
+            ]
+        },
+        // Rubinstein vs Nimzowitsch, 1907
+        {
+            id: "rubinstein-007",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "knight"
+            ]
+        },
+        // Rubinstein vs Maroczy, 1907
+        {
+            id: "rubinstein-008",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "c8b7"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "meran",
+                "positional"
+            ]
+        },
+        // Rubinstein vs Salwe, 1907
+        {
+            id: "rubinstein-009",
+            fen: "8/pp3pkp/2p3p1/8/2P5/1P4P1/P4PKP/4r3 b - - 0 30",
+            moves: [
+                "e1e2",
+                "f2e2",
+                "f7e6",
+                "e2d3",
+                "e6d5",
+                "d3c3"
+            ],
+            rating: 1850,
+            themes: [
+                "rookEndgame",
+                "technique",
+                "zugzwang"
+            ]
+        },
+        // Rubinstein vs Teichmann, 1908
+        {
+            id: "rubinstein-010",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "a2a4",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "bishop",
+                "opening"
+            ]
+        },
+        // Rubinstein vs Bernstein, 1912
+        {
+            id: "rubinstein-011",
+            fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "e3e4",
+                "c8b7",
+                "e4d5",
+                "c6d5"
+            ],
+            rating: 1950,
+            themes: [
+                "semiSlav",
+                "center",
+                "strategic"
+            ]
+        },
+        // Rubinstein vs Spielmann, 1909
+        {
+            id: "rubinstein-012",
+            fen: "r1bqk2r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "b7b6",
+                "b2b3",
+                "c8b7"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "positional"
+            ]
+        },
+        // Rubinstein vs Marshall, 1908
+        {
+            id: "rubinstein-013",
+            fen: "r1bqkb1r/pp1n1ppp/2n1p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "c1e3",
+                "f8e7",
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "f7f5"
+            ],
+            rating: 1950,
+            themes: [
+                "french",
+                "advance",
+                "development"
+            ]
+        },
+        // Rubinstein vs Janowski, 1907
+        {
+            id: "rubinstein-014",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4b5",
+                "e8g8",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "retreat",
+                "development"
+            ]
+        },
+        // Rubinstein vs Vidmar, 1907
+        {
+            id: "rubinstein-015",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "sacrifice",
+                "attack"
+            ]
+        },
+        // Rubinstein vs Cohn, 1909
+        {
+            id: "rubinstein-016",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQ - 0 8",
+            moves: [
+                "c4d5",
+                "e6d5",
+                "e1g1",
+                "c8d7",
+                "b2b3",
+                "a8c8"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "technique"
+            ]
+        },
+        // Rubinstein vs Chigorin, 1903
+        {
+            id: "rubinstein-017",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b1d2",
+                "a7a6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Rubinstein vs Wolf, 1907
+        {
+            id: "rubinstein-018",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "d5d4",
+                "c3e2",
+                "c8g4",
+                "h2h3",
+                "g4h5"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Rubinstein vs Subarev, 1912
+        {
+            id: "rubinstein-019",
+            fen: "r2q1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "a2a3",
+                "d5c4",
+                "d3c4",
+                "a7a5",
+                "d1c2",
+                "e6e5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "center",
+                "technique"
+            ]
+        },
+        // Rubinstein vs Alapin, 1908
+        {
+            id: "rubinstein-020",
+            fen: "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "c5d4",
+                "f3d4",
+                "e7e5",
+                "d4b5",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "sicilian",
+                "opening",
+                "center"
+            ]
+        },
+        // Rubinstein vs Forgacs, 1909
+        {
+            id: "rubinstein-021",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+            moves: [
+                "e3e4",
+                "d5e4",
+                "c3e4",
+                "f6e4",
+                "d3e4",
+                "f7f5"
+            ],
+            rating: 2000,
+            themes: [
+                "semiSlav",
+                "center",
+                "attack"
+            ]
+        },
+        // Rubinstein vs Przepiorka, 1907
+        {
+            id: "rubinstein-022",
+            fen: "r1bqk02r/pp1nbppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 6",
+            moves: [
+                "f1d3",
+                "e8g8",
+                "e1g1",
+                "d5c4",
+                "d3c4",
+                "b7b5"
+            ],
+            rating: 1850,
+            themes: [
+                "semiSlav",
+                "development",
+                "technique"
+            ]
+        },
+        // Rubinstein vs Mieses, 1908
+        {
+            id: "rubinstein-023",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 5",
+            moves: [
+                "d2d3",
+                "c8e6",
+                "c4e6",
+                "f7e6",
+                "c1g5",
+                "d8d6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "exchange",
+                "technique"
+            ]
+        },
+        // Rubinstein vs Perlis, 1909
+        {
+            id: "rubinstein-024",
+            fen: "r2q1rk1/1p1nbppp/p1p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 10",
+            moves: [
+                "d1c2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a4a5",
+                "b6a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "minority",
+                "positional"
+            ]
+        },
+        // Rubinstein vs Swiderski, 1906
+        {
+            id: "rubinstein-025",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6",
+                "g5h4",
+                "c8e6"
+            ],
+            rating: 1850,
+            themes: [
+                "italianGame",
+                "development",
+                "worldClass"
+            ]
+        },
+        // Rubinstein vs Leonhardt, 1911
+        {
+            id: "rubinstein-026",
+            fen: "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP4/1PN1PN2/PB3PPP/R2QKB1R w KQ - 0 9",
+            moves: [
+                "f1d3",
+                "d5c4",
+                "d3c4",
+                "b7b5",
+                "c4d3",
+                "a7a5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "meran",
+                "strategy"
+            ]
+        },
+        // Rubinstein vs Dus-Chotimirsky, 1911
+        {
+            id: "rubinstein-027",
+            fen: "r1bqk02r/pp1nbppp/2p1pn2/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R w KQkq - 0 7",
+            moves: [
+                "e1g1",
+                "e8g8",
+                "d1c2",
+                "d5c4",
+                "d3c4",
+                "b7b5"
+            ],
+            rating: 1900,
+            themes: [
+                "semiSlav",
+                "IQP",
+                "attack"
+            ]
+        },
+        // Rubinstein vs Tartakower, 1910
+        {
+            id: "rubinstein-028",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "c2c3",
+                "d7d6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Rubinstein vs Lowtzky, 1908
+        {
+            id: "rubinstein-029",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1950,
+            themes: [
+                "italianGame",
+                "pin",
+                "sacrifice"
+            ]
+        },
+        // Rubinstein vs Kostic, 1912
+        {
+            id: "rubinstein-030",
+            fen: "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 0 9",
+            moves: [
+                "e1c1",
+                "a7a6",
+                "h2h4",
+                "b7b5",
+                "g2g4",
+                "c6e5"
+            ],
+            rating: 2000,
+            themes: [
+                "sicilian",
+                "dragon",
+                "attack"
+            ]
+        }
+    ],
+    greco: [
+        // Gioachino Greco - Il Calabrese (1600-1634)
+        // Greco's famous mating pattern
+        {
+            id: "greco-001",
+            fen: "r1bqk2r/pppp1Npp/2n2n2/2b1p3/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5",
+            moves: [
+                "e8f7",
+                "d1f3",
+                "f7g8",
+                "f3f6"
+            ],
+            rating: 1700,
+            themes: [
+                "grecoMate",
+                "sacrifice",
+                "historic"
+            ]
+        },
+        // Greco's Bishop sacrifice pattern
+        {
+            id: "greco-002",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 0 4",
+            moves: [
+                "h5f7",
+                "e8e7",
+                "f7e6",
+                "d7e6",
+                "c4e6",
+                "c8e6"
+            ],
+            rating: 1800,
+            themes: [
+                "bishopSacrifice",
+                "attack",
+                "classic"
+            ]
+        },
+        // Greco's smothered mate
+        {
+            id: "greco-003",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "f3g5",
+                "d7d5",
+                "e4d5",
+                "c6a5",
+                "d5d6",
+                "f8d6"
+            ],
+            rating: 1750,
+            themes: [
+                "friedLiver",
+                "opening",
+                "greco"
+            ]
+        },
+        // Classical Italian Game position
+        {
+            id: "greco-004",
+            fen: "r1bqk02r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "c2c3",
+                "g8f6",
+                "d2d4",
+                "e5d4",
+                "c3d4",
+                "c5b4"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "center",
+                "classic"
+            ]
+        },
+        // Greco's attacking setup
+        {
+            id: "greco-005",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "f3g5",
+                "g8h6",
+                "d2d3",
+                "f8e7",
+                "g5f7",
+                "h6f7"
+            ],
+            rating: 1800,
+            themes: [
+                "friedLiver",
+                "sacrifice",
+                "attack"
+            ]
+        },
+        // Greco's Gambit position
+        {
+            id: "greco-006",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 3",
+            moves: [
+                "d1h5",
+                "g8f6",
+                "h5f7",
+                "e8f7",
+                "f1c4",
+                "d7d5"
+            ],
+            rating: 1750,
+            themes: [
+                "scholarsMate",
+                "attack",
+                "trap"
+            ]
+        },
+        // Greco's Knight sacrifice
+        {
+            id: "greco-007",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "e5c6",
+                "d4d5",
+                "c6e5"
+            ],
+            rating: 1700,
+            themes: [
+                "forkTrick",
+                "center",
+                "tactics"
+            ]
+        },
+        // Greco's Development principle
+        {
+            id: "greco-008",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1c4",
+                "g8f6",
+                "d2d3",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1600,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Greco's Bishop pair
+        {
+            id: "greco-009",
+            fen: "r1bqk02r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "d7d6",
+                "c1e3",
+                "c5e3",
+                "f2e3",
+                "c8e6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "bishopPair",
+                "exchange"
+            ]
+        },
+        // Greco's Kingside attack
+        {
+            id: "greco-010",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "e1g1",
+                "f6e4",
+                "f1e1",
+                "d7d5"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "gambit",
+                "attack"
+            ]
+        },
+        // Greco's Opening trap
+        {
+            id: "greco-011",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+            moves: [
+                "e5f4",
+                "f1c4",
+                "d8h4",
+                "e1f1",
+                "b7b5",
+                "c4b5"
+            ],
+            rating: 1750,
+            themes: [
+                "kingsGambit",
+                "gambit",
+                "trap"
+            ]
+        },
+        // Greco's Central control
+        {
+            id: "greco-012",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "d2d3",
+                "g8f6",
+                "c2c3",
+                "f8e7",
+                "b1d2",
+                "d7d6"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Greco's Tactical motif
+        {
+            id: "greco-013",
+            fen: "r1bqk02r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "f3e5",
+                "c6e5",
+                "d2d4",
+                "c5d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "forkTrick",
+                "center",
+                "classic"
+            ]
+        },
+        // Greco's Piece coordination
+        {
+            id: "greco-014",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1b5",
+                "a7a6",
+                "b5c6",
+                "d7c6",
+                "d2d3",
+                "f8c5"
+            ],
+            rating: 1700,
+            themes: [
+                "exchange",
+                "opening",
+                "pawnStructure"
+            ]
+        },
+        // Greco's Queen maneuver
+        {
+            id: "greco-015",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b2b4",
+                "c5b6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "expansion"
+            ]
+        },
+        // Greco's Pawn storm
+        {
+            id: "greco-016",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2",
+            moves: [
+                "b8c6",
+                "f1c4",
+                "g8f6",
+                "d2d4",
+                "e5d4",
+                "f3d4"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "center",
+                "opening"
+            ]
+        },
+        // Greco's Defensive technique
+        {
+            id: "greco-017",
+            fen: "r1bqk02r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "e1g1",
+                "d7d6",
+                "d2d3",
+                "e8g8",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "development",
+                "castling"
+            ]
+        },
+        // Greco's Endgame principle
+        {
+            id: "greco-018",
+            fen: "8/8/4k3/8/3PK3/8/8/8 w - - 0 1",
+            moves: [
+                "d4d5",
+                "e6d6",
+                "e4f5",
+                "d6d5",
+                "f5e5",
+                "d5c5"
+            ],
+            rating: 1500,
+            themes: [
+                "pawnEndgame",
+                "opposition",
+                "basic"
+            ]
+        },
+        // Greco's Minor piece play
+        {
+            id: "greco-019",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "c2c3",
+                "d7d6",
+                "d2d4",
+                "c8g4",
+                "d4e5",
+                "g4f3"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "pin",
+                "tactics"
+            ]
+        },
+        // Greco's Attacking formation
+        {
+            id: "greco-020",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "b1c3",
+                "f6e4",
+                "c3e4",
+                "d7d5",
+                "c4d5",
+                "d8d5"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "tactics"
+            ]
+        },
+        // Greco's Standard position
+        {
+            id: "greco-021",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "g8f6",
+                "d4c6",
+                "b7c6"
+            ],
+            rating: 1700,
+            themes: [
+                "scotch",
+                "exchange",
+                "opening"
+            ]
+        },
+        // Greco's Piece activity
+        {
+            id: "greco-022",
+            fen: "r1bqk02r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "d7d6",
+                "b1c3",
+                "c8e6",
+                "c4e6",
+                "f7e6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "exchange",
+                "opening"
+            ]
+        },
+        // Greco's Basic tactics
+        {
+            id: "greco-023",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 0 2",
+            moves: [
+                "g8f6",
+                "d2d3",
+                "f8c5",
+                "g1f3",
+                "d7d6",
+                "e1g1"
+            ],
+            rating: 1600,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Greco's Prophylaxis
+        {
+            id: "greco-024",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "c2c3",
+                "g8f6",
+                "d2d3",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "solid",
+                "prophylaxis"
+            ]
+        },
+        // Greco's Pawn structure
+        {
+            id: "greco-025",
+            fen: "r1bqk02r/ppp2ppp/2n2n2/2bpp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "d2d3",
+                "c8e6",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "exchange",
+                "center"
+            ]
+        },
+        // Greco's King safety
+        {
+            id: "greco-026",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1c4",
+                "f8c5",
+                "d2d3",
+                "g8f6",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "pin"
+            ]
+        },
+        // Greco's Initiative
+        {
+            id: "greco-027",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "e1g1",
+                "f8c5",
+                "d2d3",
+                "e8g8",
+                "c2c3",
+                "d7d6"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "castling",
+                "development"
+            ]
+        },
+        // Greco's Space advantage
+        {
+            id: "greco-028",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "c2c3",
+                "d4c3",
+                "b1c3",
+                "f8b4"
+            ],
+            rating: 1800,
+            themes: [
+                "danishGambit",
+                "gambit",
+                "opening"
+            ]
+        },
+        // Greco's Time advantage
+        {
+            id: "greco-029",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8e7",
+                "c2c3",
+                "e8g8",
+                "b1d2",
+                "d7d6"
+            ],
+            rating: 1650,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Greco's Final position
+        {
+            id: "greco-030",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "b1c3",
+                "g8f6",
+                "f1c4",
+                "f6e4",
+                "c3e4",
+                "d7d5"
+            ],
+            rating: 1750,
+            themes: [
+                "fourKnights",
+                "opening",
+                "tactics"
+            ]
+        }
+    ],
+    philidor: [
+        // François-André Danican Philidor (1726-1795)
+        // Philidor's Defense - The legendary position
+        {
+            id: "philidor-001",
+            fen: "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "g8f6",
+                "b1c3",
+                "f8e7"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "opening",
+                "solid"
+            ]
+        },
+        // Philidor's Legacy - Smothered mate pattern
+        {
+            id: "philidor-002",
+            fen: "r4rk1/ppp2ppp/8/4N2Q/5q2/8/PPP2nPP/R1B2R1K b - - 0 1",
+            moves: [
+                "f2h3",
+                "g2h3",
+                "f4f1",
+                "h1g2",
+                "f1g1",
+                "g2g1"
+            ],
+            rating: 1900,
+            themes: [
+                "smotheredMate",
+                "sacrifice",
+                "philidorsLegacy"
+            ]
+        },
+        // Philidor's endgame technique
+        {
+            id: "philidor-003",
+            fen: "8/8/8/8/R7/4k3/4p3/4K3 w - - 0 1",
+            moves: [
+                "a4a3",
+                "e3d2",
+                "a3a2",
+                "d2d1",
+                "a2e2",
+                "d1c1"
+            ],
+            rating: 1600,
+            themes: [
+                "rookEndgame",
+                "philidorPosition",
+                "draw"
+            ]
+        },
+        // Philidor's central pawn strategy
+        {
+            id: "philidor-004",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "f8e7",
+                "f1c4",
+                "e8g8"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "center",
+                "development"
+            ]
+        },
+        // Philidor's Bishop maneuver
+        {
+            id: "philidor-005",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+            moves: [
+                "f6d7",
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "b1c3"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "bishop",
+                "development"
+            ]
+        },
+        // Philidor's King safety
+        {
+            id: "philidor-006",
+            fen: "rnbqkbnr/ppp2ppp/3p4/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+            moves: [
+                "e5d4",
+                "f3d4",
+                "g8f6",
+                "b1c3",
+                "f8e7",
+                "f1c4"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "exchange",
+                "opening"
+            ]
+        },
+        // Philidor's Piece coordination
+        {
+            id: "philidor-007",
+            fen: "r1bqkb1r/ppp2ppp/2np1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "f8e7",
+                "f1e2",
+                "e8g8"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "center"
+            ]
+        },
+        // Philidor's Rook lift
+        {
+            id: "philidor-008",
+            fen: "rnbqk2r/ppp1bppp/3p1n2/4p3/3PP3/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "d4e5",
+                "d6e5",
+                "d1d8",
+                "e7d8",
+                "f3e5",
+                "e8g8"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "exchange",
+                "simplification"
+            ]
+        },
+        // Philidor's Counterplay
+        {
+            id: "philidor-009",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "f6d7",
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "solid"
+            ]
+        },
+        // Philidor's Hanham Variation
+        {
+            id: "philidor-010",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+            moves: [
+                "b8d7",
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "a2a4"
+            ],
+            rating: 1750,
+            themes: [
+                "hanhamVariation",
+                "philidorDefense",
+                "solid"
+            ]
+        },
+        // Philidor's Exchange variation
+        {
+            id: "philidor-011",
+            fen: "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1c4",
+                "f8e7",
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "g8f6"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "center",
+                "development"
+            ]
+        },
+        // Philidor's Morphy Attack
+        {
+            id: "philidor-012",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+            moves: [
+                "e5d4",
+                "f3d4",
+                "f8e7",
+                "b1c3",
+                "e8g8",
+                "f1e2"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "center",
+                "exchange"
+            ]
+        },
+        // Philidor's Endgame mastery
+        {
+            id: "philidor-013",
+            fen: "8/8/8/8/4k3/8/4P3/4K3 w - - 0 1",
+            moves: [
+                "e2e4",
+                "e4d4",
+                "e1d2",
+                "d4e4",
+                "d2e2",
+                "e4d4"
+            ],
+            rating: 1500,
+            themes: [
+                "pawnEndgame",
+                "opposition",
+                "basic"
+            ]
+        },
+        // Philidor's Strategic retreat
+        {
+            id: "philidor-014",
+            fen: "r1bqkb1r/pppn1ppp/3p1n2/4p3/3PP3/5N2/PPP1BPPP/RNBQK2R w KQkq - 0 5",
+            moves: [
+                "d4e5",
+                "d6e5",
+                "e1g1",
+                "f8d6",
+                "c2c4",
+                "e8g8"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "center",
+                "exchange"
+            ]
+        },
+        // Philidor's Queenside play
+        {
+            id: "philidor-015",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "f1b5",
+                "b8d7",
+                "d2d4",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "bishop",
+                "development"
+            ]
+        },
+        // Philidor's Knight outpost
+        {
+            id: "philidor-016",
+            fen: "r1bqkb1r/pppn1ppp/3p1n2/4p3/3PP3/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "a2a4",
+                "c7c6"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "development",
+                "outpost"
+            ]
+        },
+        // Philidor's Pawn chain
+        {
+            id: "philidor-017",
+            fen: "rnbqkbnr/ppp2ppp/3p4/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+            moves: [
+                "g8f6",
+                "b1c3",
+                "b8d7",
+                "g1f3",
+                "f8e7",
+                "f1c4"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "pawnChain",
+                "solid"
+            ]
+        },
+        // Philidor's Tactical strike
+        {
+            id: "philidor-018",
+            fen: "r1bqkb1r/ppp2ppp/2np1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+            moves: [
+                "d4e5",
+                "d6e5",
+                "d1d8",
+                "e8d8",
+                "f3e5",
+                "c6e5"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "exchange",
+                "simplification"
+            ]
+        },
+        // Philidor's Defense transformation
+        {
+            id: "philidor-019",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4",
+            moves: [
+                "f8e7",
+                "d2d4",
+                "e8g8",
+                "b1c3",
+                "c7c6",
+                "e1g1"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "transpose"
+            ]
+        },
+        // Philidor's Space advantage
+        {
+            id: "philidor-020",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+            moves: [
+                "b8d7",
+                "f1c4",
+                "c7c6",
+                "e1g1",
+                "f8e7",
+                "a2a4"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "space",
+                "development"
+            ]
+        },
+        // Philidor's Active defense
+        {
+            id: "philidor-021",
+            fen: "r1bqkb1r/pppn1ppp/3p1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "f1c4",
+                "f8e7",
+                "d2d4",
+                "e8g8",
+                "e1g1",
+                "c7c6"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "solid"
+            ]
+        },
+        // Philidor's Central tension
+        {
+            id: "philidor-022",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+            moves: [
+                "e4e5",
+                "d6e5",
+                "f3e5",
+                "f8d6",
+                "e5f3",
+                "e8g8"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "center",
+                "tactics"
+            ]
+        },
+        // Philidor's Modern treatment
+        {
+            id: "philidor-023",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "b8d7",
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "modern"
+            ]
+        },
+        // Philidor's Counterattack
+        {
+            id: "philidor-024",
+            fen: "r1bqkb1r/ppp2ppp/2np1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "f1b5",
+                "c8d7",
+                "d2d4",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "bishop",
+                "development"
+            ]
+        },
+        // Philidor's Rook endgame draw
+        {
+            id: "philidor-025",
+            fen: "8/8/4k3/4p3/4P3/4K3/8/8 w - - 0 1",
+            moves: [
+                "e3d3",
+                "e6d6",
+                "d3c4",
+                "d6c6",
+                "c4d4",
+                "c6d6"
+            ],
+            rating: 1500,
+            themes: [
+                "pawnEndgame",
+                "opposition",
+                "draw"
+            ]
+        },
+        // Philidor's Defensive setup
+        {
+            id: "philidor-026",
+            fen: "r1bqkb1r/pppn1ppp/3p1n2/4p3/3PP3/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "f1e1",
+                "c7c6"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "development",
+                "setup"
+            ]
+        },
+        // Philidor's Nimzovich variation
+        {
+            id: "philidor-027",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+            moves: [
+                "b1c3",
+                "b8d7",
+                "f1c4",
+                "f8e7",
+                "e1g1",
+                "e8g8"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "solid"
+            ]
+        },
+        // Philidor's Central break
+        {
+            id: "philidor-028",
+            fen: "r1bqkb1r/pppn1ppp/3p1n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5",
+            moves: [
+                "d2d4",
+                "f8e7",
+                "f1c4",
+                "e8g8",
+                "e1g1",
+                "c7c6"
+            ],
+            rating: 1750,
+            themes: [
+                "philidorDefense",
+                "center",
+                "development"
+            ]
+        },
+        // Philidor's Piece harmony
+        {
+            id: "philidor-029",
+            fen: "rnbqkb1r/ppp2ppp/3p1n2/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+            moves: [
+                "f6d7",
+                "f1c4",
+                "c7c6",
+                "e1g1",
+                "f8e7",
+                "b1c3"
+            ],
+            rating: 1700,
+            themes: [
+                "philidorDefense",
+                "development",
+                "harmony"
+            ]
+        },
+        // Philidor's Final word
+        {
+            id: "philidor-030",
+            fen: "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "f7f5",
+                "d4e5",
+                "f5e4",
+                "f3g5",
+                "d6d5"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "counter",
+                "gambit"
+            ]
+        }
+    ],
+    staunton: [
+        // Howard Staunton (1810-1874)
+        // Staunton vs Saint-Amant, 1843 - The match that made him champion
+        {
+            id: "staunton-001",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "c6d4",
+                "d1d4",
+                "d7d6"
+            ],
+            rating: 1800,
+            themes: [
+                "englishChampion",
+                "italianGame",
+                "center"
+            ]
+        },
+        // Staunton's English Opening
+        {
+            id: "staunton-002",
+            fen: "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+            moves: [
+                "e7e5",
+                "b1c3",
+                "g8f6",
+                "g1f3",
+                "b8c6",
+                "g2g3"
+            ],
+            rating: 1700,
+            themes: [
+                "englishOpening",
+                "opening",
+                "staunton"
+            ]
+        },
+        // Staunton Gambit vs Dutch
+        {
+            id: "staunton-003",
+            fen: "rnbqkbnr/ppppp1pp/8/5p2/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+            moves: [
+                "f5e4",
+                "b1c3",
+                "g8f6",
+                "c1g5",
+                "e7e6",
+                "f2f3"
+            ],
+            rating: 1850,
+            themes: [
+                "stauntonGambit",
+                "dutch",
+                "gambit"
+            ]
+        },
+        // Staunton's Positional play
+        {
+            id: "staunton-004",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "f1b5",
+                "f8b4",
+                "e1g1",
+                "e8g8",
+                "d2d3",
+                "d7d6"
+            ],
+            rating: 1750,
+            themes: [
+                "fourKnights",
+                "opening",
+                "positional"
+            ]
+        },
+        // Staunton vs Horwitz, 1846
+        {
+            id: "staunton-005",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2",
+            moves: [
+                "b8c6",
+                "f1b5",
+                "a7a6",
+                "b5a4",
+                "g8f6",
+                "e1g1"
+            ],
+            rating: 1700,
+            themes: [
+                "ruyLopez",
+                "opening",
+                "development"
+            ]
+        },
+        // Staunton's Defense
+        {
+            id: "staunton-006",
+            fen: "rnbqkb1r/pppppppp/5n2/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+            moves: [
+                "e7e6",
+                "b1c3",
+                "f8b4",
+                "e4e5",
+                "f6d5",
+                "a2a3"
+            ],
+            rating: 1800,
+            themes: [
+                "french",
+                "defense",
+                "staunton"
+            ]
+        },
+        // Staunton vs Williams, 1851
+        {
+            id: "staunton-007",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8c5",
+                "c2c3",
+                "d7d6",
+                "b2b4",
+                "c5b6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Staunton's Strategic concept
+        {
+            id: "staunton-008",
+            fen: "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+            moves: [
+                "g8f6",
+                "b1c3",
+                "e7e6",
+                "e2e4",
+                "d7d5",
+                "e4e5"
+            ],
+            rating: 1750,
+            themes: [
+                "englishOpening",
+                "center",
+                "strategy"
+            ]
+        },
+        // Staunton vs Cochrane, 1842
+        {
+            id: "staunton-009",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+            moves: [
+                "f1c4",
+                "f8c5",
+                "c2c3",
+                "g8f6",
+                "d2d4",
+                "e5d4"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "center"
+            ]
+        },
+        // Staunton's Middlegame technique
+        {
+            id: "staunton-010",
+            fen: "r1bq1rk1/ppp1bppp/2n2n2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQ - 0 6",
+            moves: [
+                "c1g5",
+                "d5d4",
+                "c3d5",
+                "c8e6",
+                "d5f6",
+                "e7f6"
+            ],
+            rating: 1900,
+            themes: [
+                "italianGame",
+                "pin",
+                "sacrifice"
+            ]
+        },
+        // Staunton vs Buckle, 1840
+        {
+            id: "staunton-011",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1c4",
+                "f8c5",
+                "d2d3",
+                "g8f6",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "development"
+            ]
+        },
+        // Staunton's Exchange sacrifice
+        {
+            id: "staunton-012",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "d7d6",
+                "c1e3",
+                "c5e3",
+                "f2e3",
+                "c8e6"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "exchange",
+                "positional"
+            ]
+        },
+        // Staunton vs Popert, 1840
+        {
+            id: "staunton-013",
+            fen: "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f3e5",
+                "d7d6",
+                "e5f3",
+                "f6e4",
+                "d2d4",
+                "d6d5"
+            ],
+            rating: 1750,
+            themes: [
+                "petrov",
+                "opening",
+                "center"
+            ]
+        },
+        // Staunton's Endgame mastery
+        {
+            id: "staunton-014",
+            fen: "8/8/4k3/8/3PK3/8/8/8 w - - 0 1",
+            moves: [
+                "d4d5",
+                "e6d6",
+                "e4f5",
+                "d6d5",
+                "f5e5",
+                "d5c5"
+            ],
+            rating: 1600,
+            themes: [
+                "pawnEndgame",
+                "opposition",
+                "technique"
+            ]
+        },
+        // Staunton vs Kennedy, 1843
+        {
+            id: "staunton-015",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 3",
+            moves: [
+                "c2c3",
+                "d7d6",
+                "d2d4",
+                "c8g4",
+                "d4e5",
+                "g4f3"
+            ],
+            rating: 1800,
+            themes: [
+                "italianGame",
+                "attack",
+                "development"
+            ]
+        },
+        // Staunton's Opening innovation
+        {
+            id: "staunton-016",
+            fen: "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+            moves: [
+                "c7c5",
+                "b1c3",
+                "b8c6",
+                "g2g3",
+                "g7g6",
+                "f1g2"
+            ],
+            rating: 1750,
+            themes: [
+                "englishOpening",
+                "symmetrical",
+                "fianchetto"
+            ]
+        },
+        // Staunton vs Harrwitz, 1846
+        {
+            id: "staunton-017",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "e1g1",
+                "f8c5",
+                "e4e5",
+                "f6e4"
+            ],
+            rating: 1850,
+            themes: [
+                "maxLangeAttack",
+                "gambit",
+                "sacrifice"
+            ]
+        },
+        // Staunton's Queenside attack
+        {
+            id: "staunton-018",
+            fen: "r1bqk2r/ppp1bppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "d2d3",
+                "e8g8",
+                "a2a3",
+                "a7a6",
+                "b2b4",
+                "d5d4"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "queenside",
+                "expansion"
+            ]
+        },
+        // Staunton vs Mongredien, 1846
+        {
+            id: "staunton-019",
+            fen: "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2",
+            moves: [
+                "d7d6",
+                "d2d4",
+                "c8g4",
+                "d4e5",
+                "g4f3",
+                "d1f3"
+            ],
+            rating: 1800,
+            themes: [
+                "philidorDefense",
+                "pin",
+                "exchange"
+            ]
+        },
+        // Staunton's Pawn structure
+        {
+            id: "staunton-020",
+            fen: "r1bqkb1r/ppp2ppp/2n2n2/3pp3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+            moves: [
+                "e4d5",
+                "f6d5",
+                "d2d3",
+                "d5c3",
+                "b2c3",
+                "f8e7"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "exchange",
+                "center"
+            ]
+        },
+        // Staunton vs Jaenisch, 1851
+        {
+            id: "staunton-021",
+            fen: "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "d2d4",
+                "f6e4",
+                "f1d3",
+                "d7d5",
+                "f3e5",
+                "b8d7"
+            ],
+            rating: 1800,
+            themes: [
+                "petrov",
+                "center",
+                "development"
+            ]
+        },
+        // Staunton's Defense technique
+        {
+            id: "staunton-022",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "c2c3",
+                "d7d6",
+                "d2d4",
+                "c5b6",
+                "c1g5",
+                "h7h6"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "development"
+            ]
+        },
+        // Staunton vs Spreckley, 1840
+        {
+            id: "staunton-023",
+            fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+            moves: [
+                "f1b5",
+                "g8e7",
+                "c2c3",
+                "a7a6",
+                "b5a4",
+                "d7d6"
+            ],
+            rating: 1700,
+            themes: [
+                "ruyLopez",
+                "opening",
+                "early"
+            ]
+        },
+        // Staunton's King march
+        {
+            id: "staunton-024",
+            fen: "8/pp3pkp/2p3p1/8/2P5/1P4P1/P4PKP/8 w - - 0 30",
+            moves: [
+                "f2e3",
+                "f7e6",
+                "e3d4",
+                "e6d6",
+                "g3g4",
+                "h7h5"
+            ],
+            rating: 1700,
+            themes: [
+                "kingEndgame",
+                "technique",
+                "king"
+            ]
+        },
+        // Staunton vs Evans, 1843
+        {
+            id: "staunton-025",
+            fen: "r1bqk2r/pppp1ppp/2n2n2/2b1p3/1PB1P3/5N2/P1PP1PPP/RNBQK2R b KQkq - 0 4",
+            moves: [
+                "c5b4",
+                "c2c3",
+                "b4a5",
+                "d2d4",
+                "e5d4",
+                "e1g1"
+            ],
+            rating: 1850,
+            themes: [
+                "evansGambit",
+                "gambit",
+                "opening"
+            ]
+        },
+        // Staunton's Minor piece endgame
+        {
+            id: "staunton-026",
+            fen: "8/8/8/4k3/8/2N5/4K3/8 w - - 0 1",
+            moves: [
+                "c3d5",
+                "e5d5",
+                "e2d3",
+                "d5c5",
+                "d3c3",
+                "c5d5"
+            ],
+            rating: 1500,
+            themes: [
+                "knightEndgame",
+                "draw",
+                "technique"
+            ]
+        },
+        // Staunton vs Lowenthal, 1853
+        {
+            id: "staunton-027",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "d2d3",
+                "f8e7",
+                "e1g1",
+                "e8g8",
+                "c2c3",
+                "d7d6"
+            ],
+            rating: 1700,
+            themes: [
+                "italianGame",
+                "opening",
+                "solid"
+            ]
+        },
+        // Staunton's Central domination
+        {
+            id: "staunton-028",
+            fen: "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+            moves: [
+                "g8f6",
+                "d2d4",
+                "e7e6",
+                "b1c3",
+                "f8b4",
+                "e2e3"
+            ],
+            rating: 1800,
+            themes: [
+                "englishOpening",
+                "nimzoIndian",
+                "transpose"
+            ]
+        },
+        // Staunton vs Schulder, 1846
+        {
+            id: "staunton-029",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4",
+            moves: [
+                "d2d4",
+                "e5d4",
+                "f3d4",
+                "f8b4",
+                "d4c6",
+                "b7c6"
+            ],
+            rating: 1750,
+            themes: [
+                "scotch",
+                "opening",
+                "exchange"
+            ]
+        },
+        // Staunton's Final lesson
+        {
+            id: "staunton-030",
+            fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+            moves: [
+                "b1c3",
+                "f6e4",
+                "c3e4",
+                "d7d5",
+                "c4d5",
+                "d8d5"
+            ],
+            rating: 1750,
+            themes: [
+                "italianGame",
+                "center",
+                "tactics"
+            ]
+        }
     ]
 };
 function PuzzlesPage() {
@@ -3837,12 +7211,27 @@ function PuzzlesPage() {
                 return "text-orange-400 bg-orange-900/30 border-orange-700/50";
             case "master":
                 return "text-red-400 bg-red-900/30 border-red-700/50";
+            // 20th Century Legends
             case "fischer":
                 return "text-blue-400 bg-blue-900/30 border-blue-700/50";
             case "kasparov":
                 return "text-purple-400 bg-purple-900/30 border-purple-700/50";
             case "botvinnik":
                 return "text-cyan-400 bg-cyan-900/30 border-cyan-700/50";
+            case "capablanca":
+                return "text-amber-400 bg-amber-900/30 border-amber-700/50";
+            // 19th Century / Romantic Era
+            case "morphy":
+                return "text-emerald-400 bg-emerald-900/30 border-emerald-700/50";
+            case "rubinstein":
+                return "text-rose-400 bg-rose-900/30 border-rose-700/50";
+            // Classical Era / Pre-19th Century
+            case "greco":
+                return "text-fuchsia-400 bg-fuchsia-900/30 border-fuchsia-700/50";
+            case "philidor":
+                return "text-teal-400 bg-teal-900/30 border-teal-700/50";
+            case "staunton":
+                return "text-indigo-400 bg-indigo-900/30 border-indigo-700/50";
         }
     };
     const getDifficultyLabel = (diff)=>{
@@ -3855,12 +7244,27 @@ function PuzzlesPage() {
                 return "Hard (1600-1800)";
             case "master":
                 return "Master (2000+)";
+            // 20th Century Legends
             case "fischer":
                 return "Bobby Fischer";
             case "kasparov":
                 return "Garry Kasparov";
             case "botvinnik":
                 return "Mikhail Botvinnik";
+            case "capablanca":
+                return "José Capablanca";
+            // 19th Century / Romantic Era
+            case "morphy":
+                return "Paul Morphy";
+            case "rubinstein":
+                return "Akiba Rubinstein";
+            // Classical Era / Pre-19th Century
+            case "greco":
+                return "Gioachino Greco";
+            case "philidor":
+                return "François-André Philidor";
+            case "staunton":
+                return "Howard Staunton";
         }
     };
     const formatThemes = (themes)=>{
@@ -3879,7 +7283,7 @@ function PuzzlesPage() {
                             children: "♟ Chess Puzzles"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 569,
+                            lineNumber: 935,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3887,13 +7291,13 @@ function PuzzlesPage() {
                             children: "Sharpen your tactics with puzzles across all skill levels"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 572,
+                            lineNumber: 938,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 568,
+                    lineNumber: 934,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3907,7 +7311,7 @@ function PuzzlesPage() {
                                     children: "By Rating"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 581,
+                                    lineNumber: 947,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3923,18 +7327,18 @@ function PuzzlesPage() {
                                             children: diff.charAt(0).toUpperCase() + diff.slice(1)
                                         }, diff, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 584,
+                                            lineNumber: 950,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 582,
+                                    lineNumber: 948,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 580,
+                            lineNumber: 946,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3942,42 +7346,117 @@ function PuzzlesPage() {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "text-amber-200/40 text-xs uppercase tracking-wider",
-                                    children: "♔ Legendary Players"
+                                    children: "♔ 20th Century Legends"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 600,
+                                    lineNumber: 966,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1",
+                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1 flex-wrap justify-center",
                                     children: [
                                         "fischer",
                                         "kasparov",
-                                        "botvinnik"
+                                        "botvinnik",
+                                        "capablanca"
                                     ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>setSelectedDifficulty(diff),
-                                            className: `px-4 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
-                                            children: diff === "fischer" ? "Fischer" : diff === "kasparov" ? "Kasparov" : "Botvinnik"
+                                            className: `px-3 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
+                                            children: diff.charAt(0).toUpperCase() + diff.slice(1)
                                         }, diff, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 603,
+                                            lineNumber: 969,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 601,
+                                    lineNumber: 967,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 599,
+                            lineNumber: 965,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col items-center gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-amber-200/40 text-xs uppercase tracking-wider",
+                                    children: "♕ 19th Century / Romantic Era"
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 985,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1 flex-wrap justify-center",
+                                    children: [
+                                        "morphy",
+                                        "rubinstein",
+                                        "anderssen",
+                                        "staunton"
+                                    ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setSelectedDifficulty(diff),
+                                            className: `px-3 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
+                                            children: diff.charAt(0).toUpperCase() + diff.slice(1)
+                                        }, diff, false, {
+                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                            lineNumber: 988,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 986,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                            lineNumber: 984,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col items-center gap-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-amber-200/40 text-xs uppercase tracking-wider",
+                                    children: "♖ Classical Era"
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 1004,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "inline-flex rounded-lg border border-amber-800/50 bg-stone-900/80 p-1 gap-1 flex-wrap justify-center",
+                                    children: [
+                                        "philidor",
+                                        "greco"
+                                    ].map((diff)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>setSelectedDifficulty(diff),
+                                            className: `px-3 py-2 rounded-md font-serif text-sm transition-all ${selectedDifficulty === diff ? getDifficultyColor(diff) + " shadow-lg" : "text-amber-200/70 hover:text-amber-100 hover:bg-stone-800"}`,
+                                            children: diff.charAt(0).toUpperCase() + diff.slice(1)
+                                        }, diff, false, {
+                                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                            lineNumber: 1007,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                                    lineNumber: 1005,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
+                            lineNumber: 1003,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 578,
+                    lineNumber: 944,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3993,7 +7472,7 @@ function PuzzlesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 622,
+                                lineNumber: 1026,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4001,7 +7480,7 @@ function PuzzlesPage() {
                                 children: "|"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 623,
+                                lineNumber: 1027,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4012,18 +7491,18 @@ function PuzzlesPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                lineNumber: 624,
+                                lineNumber: 1028,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                        lineNumber: 621,
+                        lineNumber: 1025,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 620,
+                    lineNumber: 1024,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4050,12 +7529,12 @@ function PuzzlesPage() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                        lineNumber: 632,
+                                        lineNumber: 1036,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 631,
+                                    lineNumber: 1035,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4069,7 +7548,7 @@ function PuzzlesPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 648,
+                                            lineNumber: 1052,
                                             columnNumber: 17
                                         }, this),
                                         status === "solved" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4077,7 +7556,7 @@ function PuzzlesPage() {
                                             children: "✓ Brilliant! Puzzle Solved!"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 653,
+                                            lineNumber: 1057,
                                             columnNumber: 17
                                         }, this),
                                         status === "failed" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4085,13 +7564,13 @@ function PuzzlesPage() {
                                             children: "✗ Not quite - Try again!"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 658,
+                                            lineNumber: 1062,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 646,
+                                    lineNumber: 1050,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4104,7 +7583,7 @@ function PuzzlesPage() {
                                             children: "← Prev"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 666,
+                                            lineNumber: 1070,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4113,7 +7592,7 @@ function PuzzlesPage() {
                                             children: "Reset"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 673,
+                                            lineNumber: 1077,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4122,19 +7601,19 @@ function PuzzlesPage() {
                                             children: "Next →"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 679,
+                                            lineNumber: 1083,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 665,
+                                    lineNumber: 1069,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 630,
+                            lineNumber: 1034,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4157,7 +7636,7 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 696,
+                                                                lineNumber: 1100,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4168,13 +7647,13 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 699,
+                                                                lineNumber: 1103,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 695,
+                                                        lineNumber: 1099,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4182,13 +7661,13 @@ function PuzzlesPage() {
                                                         children: getDifficultyLabel(selectedDifficulty)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 703,
+                                                        lineNumber: 1107,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                lineNumber: 694,
+                                                lineNumber: 1098,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4201,7 +7680,7 @@ function PuzzlesPage() {
                                                                 children: "Themes"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 710,
+                                                                lineNumber: 1114,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4214,18 +7693,18 @@ function PuzzlesPage() {
                                                                         ]
                                                                     }, i, true, {
                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 713,
+                                                                        lineNumber: 1117,
                                                                         columnNumber: 27
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 711,
+                                                                lineNumber: 1115,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 709,
+                                                        lineNumber: 1113,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4236,7 +7715,7 @@ function PuzzlesPage() {
                                                                 children: showHint ? "Hide Hint ▲" : "Show Hint ▼"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 722,
+                                                                lineNumber: 1126,
                                                                 columnNumber: 23
                                                             }, this),
                                                             showHint && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4249,13 +7728,13 @@ function PuzzlesPage() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 729,
+                                                                lineNumber: 1133,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 721,
+                                                        lineNumber: 1125,
                                                         columnNumber: 21
                                                     }, this),
                                                     (status === "solved" || status === "failed") && currentPuzzle.moves.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4266,7 +7745,7 @@ function PuzzlesPage() {
                                                                 children: "Solution"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 739,
+                                                                lineNumber: 1143,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4280,18 +7759,18 @@ function PuzzlesPage() {
                                                                         ]
                                                                     }, i, true, {
                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                        lineNumber: 742,
+                                                                        lineNumber: 1146,
                                                                         columnNumber: 29
                                                                     }, this))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                lineNumber: 740,
+                                                                lineNumber: 1144,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 738,
+                                                        lineNumber: 1142,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4304,7 +7783,7 @@ function PuzzlesPage() {
                                                                     children: "From the Games of Legends"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 755,
+                                                                    lineNumber: 1159,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4322,7 +7801,7 @@ function PuzzlesPage() {
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 758,
+                                                                                    lineNumber: 1162,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4330,13 +7809,13 @@ function PuzzlesPage() {
                                                                                     children: "• Historic Game Position"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 763,
+                                                                                    lineNumber: 1167,
                                                                                     columnNumber: 31
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                            lineNumber: 757,
+                                                                            lineNumber: 1161,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -4356,7 +7835,7 @@ function PuzzlesPage() {
                                                                                             d: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                            lineNumber: 772,
+                                                                                            lineNumber: 1176,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -4365,26 +7844,26 @@ function PuzzlesPage() {
                                                                                             r: "3"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                            lineNumber: 773,
+                                                                                            lineNumber: 1177,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 771,
+                                                                                    lineNumber: 1175,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 "Analyze Position on Lichess"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                            lineNumber: 765,
+                                                                            lineNumber: 1169,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 756,
+                                                                    lineNumber: 1160,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4392,7 +7871,7 @@ function PuzzlesPage() {
                                                                     children: "Positions from actual games played by chess legends"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 778,
+                                                                    lineNumber: 1182,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
@@ -4404,7 +7883,7 @@ function PuzzlesPage() {
                                                                     children: "View on Lichess"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 785,
+                                                                    lineNumber: 1189,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4424,19 +7903,19 @@ function PuzzlesPage() {
                                                                                         d: "M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 25 11 A 2 2 0 0 0 23 13 A 2 2 0 0 0 25 15 A 2 2 0 0 0 27 13 A 2 2 0 0 0 25 11 z M 21 18 L 21 21 L 24 21 L 24 36 L 21 36 L 21 39 L 29 39 L 29 36 L 26 36 L 26 18 L 21 18 z"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                        lineNumber: 794,
+                                                                                        lineNumber: 1198,
                                                                                         columnNumber: 33
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 793,
+                                                                                    lineNumber: 1197,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 "Open Puzzle on Lichess"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                            lineNumber: 787,
+                                                                            lineNumber: 1191,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -4456,7 +7935,7 @@ function PuzzlesPage() {
                                                                                             d: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                            lineNumber: 805,
+                                                                                            lineNumber: 1209,
                                                                                             columnNumber: 33
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
@@ -4465,26 +7944,26 @@ function PuzzlesPage() {
                                                                                             r: "3"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                            lineNumber: 806,
+                                                                                            lineNumber: 1210,
                                                                                             columnNumber: 33
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                                    lineNumber: 804,
+                                                                                    lineNumber: 1208,
                                                                                     columnNumber: 31
                                                                                 }, this),
                                                                                 "Analyze Position"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                            lineNumber: 798,
+                                                                            lineNumber: 1202,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 786,
+                                                                    lineNumber: 1190,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4500,26 +7979,26 @@ function PuzzlesPage() {
                                                                             children: "Lichess Puzzle Database"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                            lineNumber: 813,
+                                                                            lineNumber: 1217,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                                    lineNumber: 811,
+                                                                    lineNumber: 1215,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                        lineNumber: 751,
+                                                        lineNumber: 1155,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                lineNumber: 708,
+                                                lineNumber: 1112,
                                                 columnNumber: 19
                                             }, this)
                                         ]
@@ -4530,17 +8009,17 @@ function PuzzlesPage() {
                                             children: "Loading puzzle..."
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 829,
+                                            lineNumber: 1233,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                        lineNumber: 828,
+                                        lineNumber: 1232,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 691,
+                                    lineNumber: 1095,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4551,7 +8030,7 @@ function PuzzlesPage() {
                                             children: "♜ Puzzle Tips"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 836,
+                                            lineNumber: 1240,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -4565,14 +8044,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 841,
+                                                            lineNumber: 1245,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Look for checks, captures, and threats first"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 840,
+                                                    lineNumber: 1244,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -4583,14 +8062,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 845,
+                                                            lineNumber: 1249,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Consider what your opponent wants to do"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 844,
+                                                    lineNumber: 1248,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -4601,14 +8080,14 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 849,
+                                                            lineNumber: 1253,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Look for pins, forks, and skewers"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 848,
+                                                    lineNumber: 1252,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -4619,26 +8098,26 @@ function PuzzlesPage() {
                                                             children: "•"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 853,
+                                                            lineNumber: 1257,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Don't rush - visualization is key!"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 852,
+                                                    lineNumber: 1256,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 839,
+                                            lineNumber: 1243,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 835,
+                                    lineNumber: 1239,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4649,7 +8128,7 @@ function PuzzlesPage() {
                                             children: "Difficulty Levels"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 861,
+                                            lineNumber: 1265,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4662,7 +8141,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-green-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 866,
+                                                            lineNumber: 1270,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4670,13 +8149,13 @@ function PuzzlesPage() {
                                                             children: "Easy (800-1000)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 867,
+                                                            lineNumber: 1271,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 865,
+                                                    lineNumber: 1269,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4686,7 +8165,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-yellow-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 870,
+                                                            lineNumber: 1274,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4694,13 +8173,13 @@ function PuzzlesPage() {
                                                             children: "Medium (1200-1400)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 871,
+                                                            lineNumber: 1275,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 869,
+                                                    lineNumber: 1273,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4710,7 +8189,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-orange-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 874,
+                                                            lineNumber: 1278,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4718,13 +8197,13 @@ function PuzzlesPage() {
                                                             children: "Hard (1600-1800)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 875,
+                                                            lineNumber: 1279,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 873,
+                                                    lineNumber: 1277,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4734,7 +8213,7 @@ function PuzzlesPage() {
                                                             className: "w-3 h-3 rounded-full bg-red-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 878,
+                                                            lineNumber: 1282,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4742,19 +8221,19 @@ function PuzzlesPage() {
                                                             children: "Master (2000+)"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                            lineNumber: 879,
+                                                            lineNumber: 1283,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                                    lineNumber: 877,
+                                                    lineNumber: 1281,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 864,
+                                            lineNumber: 1268,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$chess$2d$retro$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$6_$40$babel$2b$core$40$7$2e$28$2e$6_react$2d$dom$40$19$2e$2$2e$3_react$40$19$2e$2$2e$3_$5f$react$40$19$2e$2$2e$3$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4762,36 +8241,36 @@ function PuzzlesPage() {
                                             children: "30 curated puzzles per difficulty level"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                            lineNumber: 882,
+                                            lineNumber: 1286,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                                    lineNumber: 860,
+                                    lineNumber: 1264,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                            lineNumber: 689,
+                            lineNumber: 1093,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-                    lineNumber: 628,
+                    lineNumber: 1032,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-            lineNumber: 566,
+            lineNumber: 932,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/chess-retro/app/puzzles/page.tsx",
-        lineNumber: 565,
+        lineNumber: 931,
         columnNumber: 5
     }, this);
 }

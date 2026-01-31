@@ -1,6 +1,6 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/classic-games/page.js")
-R.c("server/chunks/ssr/61593_next_dist_f32a85a2._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__1645ce91._.js")
+R.c("server/chunks/ssr/61593_next_dist_a5f4acbd._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__44f92036._.js")
 R.c("server/chunks/ssr/61593_next_dist_compiled_8e8e42ac._.js")
 R.c("server/chunks/ssr/61593_next_dist_esm_846ca83a._.js")
 R.c("server/chunks/ssr/61593_next_dist_0d0b57cc._.js")

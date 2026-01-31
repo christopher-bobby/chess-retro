@@ -10,8 +10,9 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "/legends", label: "Chess Legends" },
     { href: "/classic-games", label: "Classic Games" },
+    { href: "/rankings", label: "FIDE Rankings" },
     { href: "/puzzles", label: "Puzzles" },
-    { href: "/play", label: "Play vs Stockfish" },
+    { href: "/play", label: "Play vs Computer" },
   ];
 
   return (
